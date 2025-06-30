@@ -1,14 +1,14 @@
 ﻿focus_tree = {
-	id = czech_focus
+	id = china_nationalist_focus
 	
 	country = {
 		factor = 0
-		
 		modifier = {
 			add = 10
-			tag = CZE
+			tag = CHI
 		}
 	}
 	
+
 	default = no
 }

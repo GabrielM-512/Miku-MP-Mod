@@ -1,3165 +1,1715 @@
-### AI ###
-#BUL_is_historical_ai
-#BUL_is_communist_stalinist_ai
-#BUL_is_communist_balkan_ai
-#BUL_is_democratic_socialist_ai
-#BUL_is_democratic_liberal_ai
-#BUL_is_fascist_axis_ai
-#BUL_is_monarchist_ferdinand_ai
-
-ideas = {
-
-
-##    ##    ###    ######## ####  #######  ##    ##    ###    ##           ######  ########  #### ########  #### ########  ######  
-###   ##   ## ##      ##     ##  ##     ## ###   ##   ## ##   ##          ##    ## ##     ##  ##  ##     ##  ##     ##    ##    ## 
-####  ##  ##   ##     ##     ##  ##     ## ####  ##  ##   ##  ##          ##       ##     ##  ##  ##     ##  ##     ##    ##       
-## ## ## ##     ##    ##     ##  ##     ## ## ## ## ##     ## ##           ######  ########   ##  ########   ##     ##     ######  
-##  #### #########    ##     ##  ##     ## ##  #### ######### ##                ## ##         ##  ##   ##    ##     ##          ## 
-##   ### ##     ##    ##     ##  ##     ## ##   ### ##     ## ##          ##    ## ##         ##  ##    ##   ##     ##    ##    ## 
-##    ## ##     ##    ##    ####  #######  ##    ## ##     ## ########     ######  ##        #### ##     ## ####    ##     ######  
-
-
-	country = { #DLC
-
-		BUL_army_restrictions = {
-			picture = tfv_can_conscription_crisis
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-
-			cancel = {
-				has_country_flag = BUL_uk_demands_nap_with_balkan_nation_flag
-				OR = {
-					has_non_aggression_pact_with = GRE
-					has_non_aggression_pact_with = YUG
-					has_non_aggression_pact_with = ROM
-				}
-			}
-
-			on_remove = {
-				if = {
-					limit = {
-						has_country_flag = BUL_uk_demands_nap_with_balkan_nation_flag
-						NOT = { has_country_flag = BUL_refused_arms_restrictions_flag }
-						NOT = { has_country_flag = BUL_uk_gives_in_to_pressure_flag }
-					}
-					country_event = bftb_bulgaria_rearmament.4
-					ENG = { country_event = bftb_bulgaria_rearmament.5 }
-				}
-				if = {
-					limit = { has_country_flag = BUL_refused_arms_restrictions_flag }
-					clr_country_flag = BUL_refused_arms_restrictions_flag
-				}
-				if = {
-					limit = { has_country_flag = BUL_uk_gives_in_to_pressure_flag }
-					clr_country_flag = BUL_uk_gives_in_to_pressure_flag
-				}
-				if = {
-					limit = { has_country_flag = BUL_uk_demands_nap_with_balkan_nation_flag }
-					clr_country_flag = BUL_uk_demands_nap_with_balkan_nation_flag
-				}
-				country_lock_all_division_template = no
-				set_rule = {
-					can_not_declare_war = no
-				}
-			}
-			
-			modifier = {
-				industrial_capacity_factory = -0.25
-				industrial_capacity_dockyard = -0.25
-				custom_modifier_tooltip = BUL_army_restrictions_mobilization_law_tt
-			}
-		}
-
-		BUL_army_restrictions_aat = {
-			name = BUL_army_restrictions
-			picture = tfv_can_conscription_crisis
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-
-			cancel = {
-				has_country_flag = BUL_uk_demands_nap_with_balkan_nation_flag
-				OR = {
-					has_non_aggression_pact_with = GRE
-					has_non_aggression_pact_with = YUG
-					has_non_aggression_pact_with = ROM
-				}
-			}
-
-			on_remove = {
-				if = {
-					limit = {
-						has_country_flag = BUL_uk_demands_nap_with_balkan_nation_flag
-						NOT = { has_country_flag = BUL_refused_arms_restrictions_flag }
-						NOT = { has_country_flag = BUL_uk_gives_in_to_pressure_flag }
-					}
-					country_event = bftb_bulgaria_rearmament.4
-					ENG = { country_event = bftb_bulgaria_rearmament.5 }
-				}
-				if = {
-					limit = { has_country_flag = BUL_refused_arms_restrictions_flag }
-					clr_country_flag = BUL_refused_arms_restrictions_flag
-				}
-				if = {
-					limit = { has_country_flag = BUL_uk_gives_in_to_pressure_flag }
-					clr_country_flag = BUL_uk_gives_in_to_pressure_flag
-				}
-				if = {
-					limit = { has_country_flag = BUL_uk_demands_nap_with_balkan_nation_flag }
-					clr_country_flag = BUL_uk_demands_nap_with_balkan_nation_flag
-				}
-				country_lock_all_division_template = no
-				set_rule = {
-					can_not_declare_war = no
-				}
-			}
-
-			rule = {
-				can_access_market = no
-			}
-			
-			modifier = {
-				industrial_capacity_factory = -0.25
-				industrial_capacity_dockyard = -0.25
-				custom_modifier_tooltip = BUL_army_restrictions_mobilization_law_tt
-			}
-		}
-
-		BUL_second_national_catastrophe = {
-			picture = bul_second_national_catastrophe
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			cancel = {
-				BUL_has_restored_greater_bulgaria = yes
-			}
-			
-			modifier = {
-				stability_factor = -0.1
-				stability_weekly = -0.003
-				war_support_factor = -0.1
-				custom_modifier_tooltip = BUL_second_national_catastrophe_tt
-			}
-		}
-
-		BUL_second_national_catastrophe_02 = {
-			name = BUL_second_national_catastrophe
-			picture = bul_second_national_catastrophe
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			cancel = {
-				BUL_has_restored_greater_bulgaria = yes
-			}
-			
-			modifier = {
-				stability_factor = -0.1
-				war_support_factor = -0.1
-				custom_modifier_tooltip = BUL_second_national_catastrophe_tt
-			}
-		}
-
-		BUL_bulgarian_irredentism = {
-			picture = bul_bulgarian_irredentism 
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				OR = {
-					has_government = neutrality
-					has_government = fascism
-				}
-			}
-			removal_cost = -1
-			
-			modifier = {
-				stability_factor = -0.1
-				justify_war_goal_time = -0.25 
-				generate_wargoal_tension = -0.75
-				war_support_factor = 0.05
-			}
-		}
-
-		BUL_imro_01 = { #Initial negative NS
-			picture = bul_imro
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				stability_factor = -0.1
-				political_power_gain = -0.3 
-				opinion_gain_monthly_factor = -0.15
-			}
-		}
-
-		BUL_imro_02 = { #Less severe NS due to repression
-			picture = bul_imro
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				stability_factor = -0.1
-				political_power_gain = -0.3 
-			}
-		}
-
-		BUL_imro_03 = { #Even less severe NS due to repression
-			picture = bul_imro
-			name = BUL_imro_02
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				stability_factor = -0.1
-			}
-		}
-
-		BUL_imro_04 = { #Less severe NS due to cooperation
-			picture = bul_imro
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				stability_factor = -0.1
-				opinion_gain_monthly_factor = -0.15
-			}
-		}
-
-		BUL_imro_05 = { #Even less severe NS due to cooperation
-			picture = bul_imro
-			name = BUL_imro_04
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				stability_factor = -0.1
-				opinion_gain_monthly_factor = -0.25
-				trade_opinion_factor = -0.15
-			}
-		}
-
-		BUL_tsar_boris_positive_01 = {
-			picture = bul_tsar_boris_positive
-
-			allowed = {
-				original_tag = BUL
-				has_country_leader = {
-					character = BUL_boris_iii
-				}
-			}
-
-			allowed_civil_war = {
-				has_country_leader = {
-					character = BUL_boris_iii
-				}
-				NOT = { has_government = communism }
-				NOT = { has_government = democratic }		
-			}
-			removal_cost = -1
-			
-			modifier = {
-				political_power_factor = 0.1
-			}
-		}
-
-		BUL_tsar_boris_positive_02 = {
-			picture = bul_tsar_boris_positive
-			name = BUL_tsar_boris_positive_01
-
-			allowed = {
-				original_tag = BUL
-				has_country_leader = {
-					character = BUL_boris_iii
-				}
-			}
-
-			allowed_civil_war = {
-				has_country_leader = {
-					character = BUL_boris_iii
-				}
-				NOT = { has_government = communism }
-				NOT = { has_government = democratic }
-			}
-			removal_cost = -1
-			
-			modifier = {
-				political_power_factor = 0.2
-			}
-		}
-
-		BUL_tsar_boris_positive_03 = {
-			picture = bul_tsar_boris_positive
-			name = BUL_tsar_boris_positive_01
-
-			allowed = {
-				original_tag = BUL
-				has_country_leader = {
-					character = BUL_boris_iii
-				}
-			}
-
-			allowed_civil_war = {
-				has_country_leader = {
-					character = BUL_boris_iii
-				}
-				NOT = { has_government = communism }
-				NOT = { has_government = democratic }
-			}
-			removal_cost = -1
-			
-			modifier = {
-				political_power_factor = 0.3
-				drift_defence_factor = 0.15
-			}
-		}
-
-		BUL_tsar_boris_negative_01 = {
-			picture = bul_tsar_boris_negative
-
-			allowed = {
-				original_tag = BUL
-				has_country_leader = {
-					character = BUL_boris_iii
-				}
-			}
-
-			allowed_civil_war = {
-				has_country_leader = {
-					character = BUL_boris_iii
-				}
-				BUL_has_abolished_monarchy = no
-			}
-			removal_cost = -1
-			
-			modifier = {
-				political_power_factor = -0.15
-			}
-		}
-
-		BUL_tsar_boris_negative_02 = {
-			name = BUL_tsar_boris_positive_01
-			picture = bul_tsar_boris_positive
-
-			allowed = {
-				original_tag = BUL
-				has_country_leader = {
-					character = BUL_boris_iii
-				}
-			}
-
-			allowed_civil_war = {
-				has_country_leader = {
-					character = BUL_boris_iii
-				}
-				NOT = {
-					any_other_country = {
-						tag = BUL
-						has_country_leader = {
-							character = BUL_boris_iii
-						}
-					}
-				}
-			}
-			removal_cost = -1
-			
-			modifier = {
-				political_power_factor = -0.1
-				join_faction_tension = -0.2
-			}
-		}
-
-		BUL_zveno_ns = {
-			picture = bul_zveno
-
-			allowed = {
-				original_tag = BUL
-				NOT = { has_country_flag = BUL_zveno_coup_flag }
-			}
-
-			allowed_civil_war = {
-				tag = BUL
-				NOT = { has_country_flag = BUL_zveno_coup_flag }
-				NOT = { has_cosmetic_tag = BUL_zveno_bulgaria }
-			}
-			removal_cost = -1
-
-			cancel = {
-				has_country_flag = BUL_zveno_coup_flag
-				has_country_flag = BUL_zveno_destroyed_flag
-			}
-			
-			modifier = {
-				army_leader_cost_factor = 0.25
-				training_time_factor = 0.15
-				experience_gain_army_factor = 0.1
-			}
-		}
-
-		BUL_fatherland_front_positive = {
-			picture = bul_fatherland_front_positive
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				has_government = communism
-			}
-			removal_cost = -1
-			
-			modifier = {
-				war_support_factor = 0.05
-				communism_drift = 0.3
-				drift_defence_factor = 0.15
-			}
-		}
-
-		BUL_fatherland_front_negative = {
-			picture = bul_fatherland_front_negative
-			name = BUL_fatherland_front_positive
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				NOT = { has_government = communism }
-			}
-			removal_cost = -1
-
-			cancel = {
-				OR = {
-					has_country_flag = BUL_ff_destroyed_flag 
-					has_country_flag = BUL_ff_civil_war_flag
-				}
-			}
-			
-			modifier = {
-				stability_weekly = -0.003
-				political_power_factor = -0.25
-				communism_drift = 0.2
-			}
-		}
-
-		BUL_fatherland_front_negative_02 = {
-			picture = bul_fatherland_front_negative
-			name = BUL_fatherland_front_positive
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				NOT = { has_government = communism }
-			}
-			removal_cost = -1
-
-			cancel = {
-				OR = {
-					has_country_flag = BUL_ff_destroyed_flag 
-					has_country_flag = BUL_ff_civil_war_flag
-				}
-			}
-			
-			modifier = {
-				stability_weekly = -0.002
-				political_power_factor = -0.25
-				communism_drift = 0.15
-			}
-		}
-
-		BUL_fatherland_front_negative_03 = {
-			picture = bul_fatherland_front_negative
-			name = BUL_fatherland_front_positive
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				NOT = { has_government = communism }
-			}
-			removal_cost = -1
-
-			cancel = {
-				OR = {
-					has_country_flag = BUL_ff_destroyed_flag 
-					has_country_flag = BUL_ff_civil_war_flag
-				}
-			}
-			
-			modifier = {
-				stability_weekly = -0.001
-				political_power_factor = -0.15
-				communism_drift = 0.05
-			}
-		}
-
-		BUL_paramilitary_organizations = {
-			picture = ast_volunteer_defence_corps
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				NOT = { has_government = communism }
-			}
-			removal_cost = -1
-			
-			modifier = {
-				weekly_manpower = 500
-			}
-		}
-
-		BUL_brannik = {
-			picture = MEX_politicised_army
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				OR = {
-					has_completed_focus = BUL_found_the_brannik
-					has_government = neutrality
-				}
-			}
-			removal_cost = -1
-			
-			modifier = {
-				conscription_factor = 0.1
-				political_advisor_cost_factor = -0.25
-				war_support_factor = 0.05
-			}
-		}
-
-		BUL_liberal_trade_policies = {
-			picture = can_wartime_prices_and_trade_board
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				NOT = {
-					has_government = communism
-					has_government = fascism
-				}
-			}
-			removal_cost = -1
-			
-			modifier = {
-				trade_laws_cost_factor = -0.50
-				consumer_goods_factor = -0.15
-			}
-		}
-
-		BUL_bulgarian_patriarchate_restored = {
-			picture = YUG_orthodox_church_support
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			
-			modifier = {
-				stability_weekly = 0.01
-				political_power_gain = 0.5
-			}
-		}
-
-		BUL_national_industry_01 = {
-			picture = bul_national_industry
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			
-			modifier = {
-				production_speed_industrial_complex_factor = 0.05		
-			}
-		}
-
-		BUL_national_industry_02 = {
-			picture = bul_national_industry
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			
-			modifier = {
-				production_speed_buildings_factor = 0.03
-				production_factory_efficiency_gain_factor = 0.02
-				production_factory_max_efficiency_factor = 0.01
-				consumer_goods_factor = 0.10
-			}
-		}
-
-		BUL_national_industry_03 = {
-			picture = bul_national_industry
-			name = BUL_national_industry_02
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			
-			modifier = {
-				production_speed_buildings_factor = 0.07
-				production_factory_efficiency_gain_factor = 0.05
-				production_factory_max_efficiency_factor = 0.03
-				consumer_goods_factor = 0.15
-			}
-		}
-
-		BUL_national_industry_04 = {
-			picture = bul_national_industry
-			name = BUL_national_industry_02
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			
-			modifier = {
-				production_speed_buildings_factor = 0.10
-				production_factory_efficiency_gain_factor = 0.1
-				production_factory_max_efficiency_factor = 0.05
-				global_building_slots_factor = 0.2
-			}
-		}
-
-		BUL_tobacco_exports = {
-			picture = bul_tobacco_exports
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = -0.10
-			}
-		}
-
-		BUL_nationalized_industry = {
-			picture = bul_nationalized_industry
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			
-			modifier = {
-				industrial_capacity_factory = 0.1
-			}
-		}
-
-		BUL_aircraft_repair_facilities = {
-			picture = generic_bomber_production_diverted
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			equipment_bonus = {
-				small_plane_airframe = {
-					build_cost_ic = -0.1 instant = yes
-				}
-			}
-			
-			modifier = {
-				air_accidents_factor = -0.25
-				air_range_factor = 0.1
-			}
-		}
-
-		BUL_international_pilot_training_program = {
-			picture = generic_air_bonus
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			modifier = {
-				experience_gain_air = 0.05
-				experience_gain_air_factor = 0.5
-				air_training_xp_gain_factor = 0.1
-			}
-		}
-
-		BUL_bulgarian_army_01 = {
-			picture = generic_reserve_divisions
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			modifier = {
-				conscription_factor = 0.05
-			}
-		}
-
-		BUL_bulgarian_army_02 = {
-			picture = generic_reserve_divisions
-			name = BUL_bulgarian_army_01
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			modifier = {
-				experience_gain_navy_factor = 0.1
-				experience_gain_army_factor = 0.1
-				army_leader_cost_factor = -0.2
-			}
-		}
-
-		BUL_bulgarian_army_03 = {
-			picture = generic_reserve_divisions
-			name = BUL_bulgarian_army_01
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			modifier = {
-				conscription_factor = 0.05
-				experience_gain_navy_factor = 0.1
-				experience_gain_army_factor = 0.1
-				army_leader_cost_factor = -0.2
-			}
-		}
-
-		BUL_prussia_of_the_balkans_01 = {
-			picture = bul_prussia_of_the_balkans
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			modifier = {
-				conscription_factor = 0.1
-				non_core_manpower = 0.05
-				experience_gain_army_factor = 0.1
-				army_morale_factor = 0.1
-				max_command_power = 25
-			}
-		}
-
-		BUL_prussia_of_the_balkans_02 = {
-			name = BUL_prussia_of_the_balkans_01
-
-			picture = bul_prussia_of_the_balkans
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			modifier = {
-				conscription_factor = 0.1
-				non_core_manpower = 0.05
-				experience_gain_navy_factor = 0.1
-				experience_gain_army_factor = 0.1
-				army_leader_cost_factor = -0.15
-				navy_leader_cost_factor = -0.15
-				army_leader_start_attack_level = 1
-				army_leader_start_defense_level	= 1
-				navy_leader_start_attack_level = 1
-				navy_leader_start_defense_level = 1
-				army_morale_factor = 0.1
-				max_command_power = 50
-				justify_war_goal_time = -0.5
-				army_org_factor = 0.05
-			}
-		}
-
-		BUL_prussia_of_the_balkans_03 = {
-			name = BUL_prussia_of_the_balkans_01
-
-			picture = bul_prussia_of_the_balkans
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			modifier = {
-				conscription_factor = 0.1
-				non_core_manpower = 0.05
-				experience_gain_navy_factor = 0.15
-				experience_gain_army_factor = 0.15
-				army_leader_cost_factor = -0.15
-				navy_leader_cost_factor = -0.15
-				army_leader_start_attack_level = 1
-				army_leader_start_defense_level	= 1
-				navy_leader_start_attack_level = 1
-				navy_leader_start_defense_level = 1
-				army_morale_factor = 0.1
-				max_command_power = 75
-				justify_war_goal_time = -0.5
-				army_org_factor = 0.1
-			}
-		}
-
-		BUL_prussia_of_the_balkans_04 = {
-			name = BUL_prussia_of_the_balkans_01
-
-			picture = bul_prussia_of_the_balkans
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			modifier = {
-				conscription_factor = 0.1
-				non_core_manpower = 0.05
-				experience_gain_navy_factor = 0.15
-				experience_gain_army_factor = 0.15
-				army_leader_cost_factor = -0.3
-				navy_leader_cost_factor = -0.3
-				army_leader_start_attack_level = 2
-				army_leader_start_defense_level	= 2
-				navy_leader_start_attack_level = 2
-				navy_leader_start_defense_level = 2
-				army_morale_factor = 0.1
-				max_command_power = 100
-				justify_war_goal_time = -0.5
-				army_org_factor = 0.15
-			}
-		}
-
-		BUL_prussia_of_the_balkans_weakened_01 = {
-			name = BUL_prussia_of_the_balkans_01
-
-			picture = bul_prussia_of_the_balkans
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			modifier = {
-				conscription_factor = 0.1
-				non_core_manpower = 0.05
-				experience_gain_navy_factor = 0.05
-				experience_gain_army_factor = 0.05
-				army_leader_cost_factor = -0.15
-				navy_leader_cost_factor = -0.15
-				army_leader_start_attack_level = 1
-				army_leader_start_defense_level	= 1
-				navy_leader_start_attack_level = 1
-				navy_leader_start_defense_level = 1
-				army_morale_factor = 0.1
-				justify_war_goal_time = -0.5
-			}
-		}
-
-		BUL_prussia_of_the_balkans_weakened_02 = {
-			name = BUL_prussia_of_the_balkans_01
-
-			picture = bul_prussia_of_the_balkans
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			modifier = {
-				conscription_factor = 0.1
-				non_core_manpower = 0.05
-				experience_gain_navy_factor = 0.05
-				experience_gain_army_factor = 0.05
-				army_leader_start_defense_level	= 1
-				navy_leader_start_defense_level = 1
-				army_morale_factor = 0.05
-				justify_war_goal_time = -0.5
-			}
-		}
-
-		BUL_prussia_of_the_balkans_weakened_03 = {
-			name = BUL_prussia_of_the_balkans_01
-
-			picture = bul_prussia_of_the_balkans
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			modifier = {
-				conscription_factor = 0.1
-				non_core_manpower = 0.05
-				experience_gain_navy_factor = 0.05
-				experience_gain_army_factor = 0.05
-				army_morale_factor = 0.05
-				justify_war_goal_time = -0.25
-			}
-		}
-
-		BUL_supremacy_on_the_bosporus = {
-			picture = bul_supremacy_on_the_bosphorus
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			modifier = {
-				amphibious_invasion = 0.1
-				amphibious_invasion_defence = 0.2
-				invasion_preparation = -0.5
-			}
-		}
-
-		BUL_bulgarian_shipping_chamber = {
-			picture = bul_bulgarian_shipping_chamber
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			equipment_bonus = {
-				convoy = {
-					build_cost_ic = -0.1 instant = yes
-				}
-			}
-
-			modifier = {
-				repair_speed_factor = 0.2
-				refit_speed = 0.2
-			}
-		}
-
-		BUL_worker_strikes = {
-			picture = FRA_factory_strikes
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			cancel = { 
-				OR = {
-					has_country_flag = BUL_bs_destroyed_flag
-					has_country_flag = BUL_bs_integrated_flag
-				}
-			}
-
-			modifier = {
-				stability_factor = -0.1
-				industrial_capacity_factory = -0.1
-				industrial_capacity_dockyard = -0.1
-				production_speed_buildings_factor = -0.1
-			}
-		}
-
-		BUL_buhovo_uranium_mines = {
-			picture = ast_all_in
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			on_remove = {
-				if = {
-					limit = {
-						BUL = { has_idea = BUL_uranium_concession_agreement_ns }
-					}
-					BUL = { set_country_flag = BUL_uranium_concession_agreement_ended_flag }
-				}
-			}
-
-			cancel = { 
-				has_war_with = BUL
-			}
-
-			modifier = {
-				production_speed_nuclear_reactor_factor = 0.1
-				nuclear_production_factor = 0.1
-			}
-			research_bonus = {
-				nuclear = 0.05
-			}
-		}
-
-		BUL_uranium_concession_agreement_ns = {
-			picture = generic_exploit_mines
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			cancel = {
-				has_country_flag = BUL_uranium_concession_agreement_ended_flag
-			}
-
-			on_remove = {
-				clr_country_flag = BUL_uranium_concession_agreement_ended_flag
-			}
-
-			modifier = {
-				consumer_goods_factor = -0.15
-			}
-		}
-
-		BUL_volunteers_in_spain_republican = {
-			picture = FRA_scw_intervention_republicans_focus
-
-			allowed = {
-				original_tag = BUL
-			}
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+### search_filters = {FOCUS_FILTER_INTERNAL_AFFAIRS}
+
+focus_tree = {
+	id = bulgarian_focus
+
+	country = {
+		factor = 0
 		
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				send_volunteer_divisions_required = -0.75
-				send_volunteer_size = 3
-				send_volunteers_tension = -1
-			} 
-		}
-
-		BUL_volunteers_in_spain_nationalist = {
-			picture = FRA_scw_intervention_nationalists_focus
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				send_volunteer_divisions_required = -0.75
-				send_volunteer_size = 3
-				send_volunteers_tension = -1
-			} 
-		}
-
-		BUL_the_peoples_militia_directorate = {
-			picture = MEX_revolutionary_army
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				drift_defence_factor = 0.15
-				foreign_subversive_activites = -0.5
-			} 
-		}
-
-		BUL_the_peoples_militia_directorate_lar = {
-			name = BUL_the_peoples_militia_directorate
-
-			picture = MEX_revolutionary_army
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				operative_slot = 1
-				enemy_operative_capture_chance_factor = 0.15
-				intelligence_agency_defense = 0.15
-				drift_defence_factor = 0.15
-			} 
-		}
-
-		BUL_elites_crushed = {
-			picture = SPR_class_war #eng_tackle_capitalism
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				political_power_factor = -0.20
-				military_leader_cost_factor = 0.20
-				political_advisor_cost_factor = 0.20
-			} 
-		}
-
-		BUL_government_reforms_communists_01 = {
-			picture = generic_political_support
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = -0.15
-				conscription = 0.02
-			} 
-		}
-
-		BUL_government_reforms_communists_02 = {
-			name = BUL_government_reforms_communists_01
-
-			picture = generic_political_support
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = -0.15
-				conscription = 0.02
-				industrial_capacity_factory = 0.1
-			} 
-		}
-
-		BUL_trained_youth_wings = {
-			picture = HUN_secret_rearmament
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				conscription_factor = 0.15
-				training_time_factor = -0.1
-				army_org_factor = -0.05
-			} 
-		}
-
-		BUL_anti_capitalism = { #This NS relies on hidden NSs with targeted modifiers to be applied to the appropriate nations
-			picture = eng_tackle_capitalism
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				tag = BUL
-				has_government = communism
-			}
-			removal_cost = -1
-
-			on_remove = {
-				set_country_flag = BUL_anti_capitalism_ns_expired_flag
-			}
-			
-			modifier = {
-				custom_modifier_tooltip = BUL_anti_capitalism_tt
-			}
-		}
-
-		BUL_the_balkans_united = {
-			picture = generic_volunteer_expedition_bonus
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-
-			cancel = {
-				OR = {
-					has_government = fascism
-					AND = {
-						NOT = { tag = BUL }
-						NOT = { is_in_faction_with = BUL }
-					}
-				}
-			}
-			
-			modifier = {
-				army_core_attack_factor = 0.15
-				army_core_defence_factor = 0.15
-				army_org_factor = 0.1
-			}
-		}
-
-		BUL_balkan_federation_project_propaganda = {
-			picture = por_iberian_workers_united
-
-			allowed = {
-				BUL_is_balkan_nation = yes
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-		
-			removal_cost = -1
-
-			cancel = {
-				OR = {
-					BUL = { has_capitulated = yes }
-					NOT = { country_exists = BUL }
-				}
-			}
-			
-			modifier = {
-				communism_drift = 0.2
-			}
-		}
-
-		BUL_defying_moscow = {
-			picture = trotskyite_plot
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-		
-			removal_cost = -1
-
-			targeted_modifier = {
-				tag = SOV
-				attack_bonus_against = 0.1
-				defense_bonus_against = 0.1
-			}
-		}
-
-		BUL_balkan_trade_union_secretariat = {
-			picture = can_wartime_prices_and_trade_board
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-		
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = -0.15
-				trade_laws_cost_factor = -0.35
-				economy_cost_factor = -0.35
-			}
-		}
-
-		BUL_total_war = {
-			picture = can_wartime_prices_and_trade_board
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				NOT = { has_government = communism }
-			}
-		
-			removal_cost = -1
-			
-			modifier = {
-				conscription_factor = 0.05
-				mobilization_laws_cost_factor = -0.35
-				economy_cost_factor = -0.35
-			}
-		}
-
-		BUL_total_war_02 = {
-			name = BUL_total_war
-			
-			picture = can_wartime_prices_and_trade_board
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				NOT = { has_government = communism }
-			}
-		
-			removal_cost = -1
-			
-			modifier = {
-				conscription_factor = 0.05
-				mobilization_laws_cost_factor = -0.35
-				economy_cost_factor = -0.35
-			}
-
-			targeted_modifier = {
-				tag = SOV
-				attack_bonus_against = 0.1
-				defense_bonus_against = 0.1
-			}
-		}
-
-		BUL_ferdinands_puppet = {
-			
-			picture = generic_monarchist_uprising
-
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				is_subject_of = BUL
-			}
-		
-			removal_cost = -1
-			
-			modifier = {
-				cic_to_overlord_factor = 0.4
-				mic_to_overlord_factor = 0.4
-				master_ideology_drift = 0.5
-			}
-		}
-
-		BUL_the_fate_of_the_balkans = {
-			
-			picture = bul_the_fate_of_the_balkans
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				tag = BUL
-				NOT = {
-					has_government = communism
-					has_government = democratic
-				}
-			}
-		
-			removal_cost = -1
-			
-			modifier = {
-				army_attack_factor = 0.1
-				army_defence_factor = 0.1
-			}
-		}
-
-		BUL_the_bulgarian_threat = {
-			
-			picture = bul_the_fate_of_the_balkans
-
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-		
-			removal_cost = -1
-			
-			modifier = {
-				surrender_limit = -0.2
-			}
-		}
-
-		BUL_toppling_giants = {
-			
-			picture = chi_wargaming_division
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				tag = BUL
-			}
-		
-			removal_cost = -1
-
-			on_remove = {
-				set_country_flag = BUL_toppling_giants_ns_expired_flag
-			}
-			
-			modifier = {
-				surrender_limit = 0.2
-				weekly_manpower = 1000
-				custom_modifier_tooltip = BUL_toppling_giants_ns_target_tt
-			}
-		}
-
-		BUL_nationalist_propaganda = {
-			
-			picture = generic_morale_bonus
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				has_government = neutrality
-			}
-		
-			removal_cost = -1
-			
-			modifier = {
-				war_support_factor = 0.05
-				weekly_manpower = 500
-				neutrality_drift = 0.1
-			}
-		}
-
-		BUL_nationalist_propaganda_fascism = {
-			name = BUL_nationalist_propaganda
-			
-			picture = generic_morale_bonus
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				has_government = fascism
-			}
-		
-			removal_cost = -1
-			
-			modifier = {
-				war_support_factor = 0.05
-				weekly_manpower = 500
-				fascism_drift = 0.1
-			}
-		}
-
-		BUL_nationalist_propaganda_weak = {
-			name = BUL_nationalist_propaganda
-			
-			picture = generic_morale_bonus
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				has_government = neutrality
-			}
-		
-			removal_cost = -1
-
-			on_add = {
-				add_manpower = 10000
-			}
-			
-			modifier = {
-				war_support_factor = 0.05
-				neutrality_drift = 0.1
-			}
-		}
-
-		BUL_nationalist_propaganda_weak_fascism = {
-			name = BUL_nationalist_propaganda
-			
-			picture = generic_morale_bonus
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				has_government = fascism
-			}
-		
-			removal_cost = -1
-
-			on_add = {
-				add_manpower = 10000
-			}
-			
-			modifier = {
-				war_support_factor = 0.05
-				fascism_drift = 0.1
-			}
-		}
-
-		BUL_guardians_of_the_balkans = {	
-			picture = YUG_federal_defense_council
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-		
-			removal_cost = -1
-			
-			modifier = {
-				army_core_attack_factor = 0.15
-				army_core_defence_factor = 0.15
-				production_speed_bunker_factor = 0.2
-				production_speed_coastal_bunker_factor = 0.2
-				production_speed_radar_station_factor = 0.2
-				production_speed_naval_base_factor = 0.2
-				production_speed_air_base_factor = 0.2
-			}
-		}
-
-		BUL_defender_of_the_balkans = {
-
-			picture = YUG_federal_defense_council
-
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				is_subject_of = BUL
-			}
-		
-			removal_cost = -1
-			
-			modifier = {
-				army_core_attack_factor = 0.1
-				army_core_defence_factor = 0.1
-				production_speed_bunker_factor = 0.1
-				production_speed_coastal_bunker_factor = 0.1
-				production_speed_radar_station_factor = 0.1
-				production_speed_naval_base_factor = 0.1
-				production_speed_air_base_factor = 0.1
-			}
-		}
-
-		BUL_military_dictatorship = {
-			picture = generic_intel_bonus
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				has_government = fascism
-			}
-			
-			removal_cost = -1
-			
-			modifier = {
-				war_support_weekly = 0.001
-				conscription = 0.01
-			}
-		}
-
-		BUL_ratniks = {
-			picture = bul_ratniks
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				has_government = fascism
-			}
-			
-			removal_cost = -1
-			
-			modifier = {
-				fascism_drift = 0.02
-				conscription_factor = 0.35
-			}
-		}
-
-		BUL_government_reforms_fascists_01 = {
-			name = BUL_government_reforms_communists_01
-
-			picture = generic_political_support
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			
-			modifier = {
-				economy_cost_factor = -0.5
-				production_speed_industrial_complex_factor = 0.1
-			} 
-		}
-
-		BUL_government_reforms_fascists_02 = {
-			name = BUL_government_reforms_communists_01
-
-			picture = FRA_market_dynamism
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-
-			on_add = {
-				add_ideas = limited_exports
-			}
-			
-			modifier = {
-				economy_cost_factor = -0.5
-				production_speed_industrial_complex_factor = 0.15
-				consumer_goods_factor = -0.15
-				trade_laws_cost_factor = 0.5
-				min_export = -0.15
-			} 
-		}
-
-		BUL_government_reforms_fascists_03 = {
-			name = BUL_government_reforms_communists_01
-
-			picture = FRA_market_dynamism
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			
-			modifier = {
-				economy_cost_factor = -0.5
-				production_speed_industrial_complex_factor = 0.2
-				consumer_goods_factor = -0.15
-				trade_laws_cost_factor = 0.5
-				min_export = -0.15
-				local_resources_factor = 0.15
-			} 
-		}
-
-		BUL_petorka = {
-			picture = generic_democratic_drift_bonus
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				tag = BUL
-			}
-			removal_cost = -1
-			
-			modifier = {
-				political_advisor_cost_factor = -0.30
-				political_power_factor = 0.05
-				democratic_drift = 0.05
-			} 
-		}
-
-		BUL_government_reforms_democratic_01 = {
-			name = BUL_government_reforms_communists_01
-
-			picture = generic_political_support
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = -0.15
-				production_speed_buildings_factor = 0.05
-				global_building_slots_factor = 0.1
-			} 
-		}
-
-		BUL_government_reforms_democratic_02 = {
-			name = BUL_government_reforms_communists_01
-
-			picture = generic_political_support
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			
-			modifier = {
-				industrial_capacity_factory = 0.05
-				production_factory_max_efficiency_factor = 0.05
-				production_factory_start_efficiency_factor = 0.1
-				line_change_production_efficiency_factor = 0.1
-				industrial_capacity_dockyard = 0.05
-			} 
-		}
-
-		BUL_third_bulgarian_state = {
-			picture = bul_third_bulgarian_state
-
-			allowed = {
-				original_tag = BUL
-			}
-		
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			
-			modifier = {
-				stability_weekly = 0.002
-				research_speed_factor = 0.05
-			} 
-		}
-
-		BUL_the_fight_against_tyranny = {
-			
-			picture = SPR_anti_fascist_crusade
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				tag = BUL
-			}
-		
-			removal_cost = -1
-			
-			modifier = {
-				fascism_drift = -0.15
-				army_morale_factor = 0.05
-				army_attack_factor = 0.05
-				army_defence_factor= 0.05
-				army_org_factor = 0.05
-			}
-		}
-
-		BUL_the_fight_against_bolshevism = {
-			
-			picture = ger_bulwark_against_bolshevism
-
-			allowed = {
-				original_tag = BUL
-			}
-
-			allowed_civil_war = {
-				tag = BUL
-			}
-		
-			removal_cost = -1
-
-			on_remove = {
-				set_country_flag = BUL_the_fight_against_bolshevism_ns_expired_flag
-			}
-			
-			modifier = {
-				custom_modifier_tooltip = BUL_the_fight_against_bolshevism_ns_target_tt
-			}
-		}
-
-		BUL_bulgarian_capital_injection = {
-			
-			picture = generic_foreign_capital
-
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-		
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = -0.15
-				drift_defence_factor = -0.5
-				democratic_drift = 0.05
-			}
-		}
-
-	}
-
-
-########  ########  ######  ####  ######   ##    ## ######## ########   ######  
-##     ## ##       ##    ##  ##  ##    ##  ###   ## ##       ##     ## ##    ## 
-##     ## ##       ##        ##  ##        ####  ## ##       ##     ## ##       
-##     ## ######    ######   ##  ##   #### ## ## ## ######   ########   ######  
-##     ## ##             ##  ##  ##    ##  ##  #### ##       ##   ##         ## 
-##     ## ##       ##    ##  ##  ##    ##  ##   ### ##       ##    ##  ##    ## 
-########  ########  ######  ####  ######   ##    ## ######## ##     ##  ######  
-
-
-
-	naval_manufacturer = { 
-			
-		designer = yes
-		
-
-		BUL_british_naval_designer = {
-			name = yarrow_shipbuilders
-
-			picture = yarrow_shipbuilders
-
-			cost = 75
-
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			available = {
-				has_country_flag = BUL_british_naval_agreements_flag
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_british_naval_designer_flag }
-					}
-					ENG = { #Scripted trigger for this generates confusing tt due to indentation
-						has_opinion = {
-							target = ROOT
-							value > 49
-						}
-						has_capitulated = no
-						BUL_is_valid_subject = yes
-					}
-				}
-				NOT = { has_war_with = ENG }
-				OR = {
-					is_subject = no
-					is_subject_of = ENG
-				}
-				NOT = { has_completed_focus = BUL_nationalization }
-			}
-
-			on_add = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_british_naval_designer_flag }
-					}
-					random_owned_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = dockyard
-								size > 0
-								include_locked = yes
-							}
-						}
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = dockyard
-							level = 1
-							instant_build = yes
-						}
-					}
-					set_country_flag = BUL_contract_with_british_naval_designer_flag
-				}		
-			}
-						
-			research_bonus = {
-				naval_equipment = 0.15
-			}
-			
-			traits = { convoy_escort_naval_manufacturer }							
-		}
-
-		BUL_soviet_naval_designer = {
-			name = nevskoye_design_bureau
-			
-			picture = nevskoye_design_bureau
-
-			cost = 75
-
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			available = {
-				has_country_flag = BUL_soviet_naval_agreements_flag
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_soviet_naval_designer_flag }
-					}
-					SOV = { #Scripted trigger for this generates confusing tt due to indentation
-						has_opinion = {
-							target = ROOT
-							value > 49
-						}
-						has_capitulated = no
-						BUL_is_valid_subject = yes
-					}
-				}
-				NOT = { has_war_with = SOV }
-				OR = {
-					is_subject = no
-					is_subject_of = SOV
-				}
-				NOT = { has_completed_focus = BUL_nationalization }
-			}
-
-			on_add = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_soviet_naval_designer_flag }
-					}
-					random_owned_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = dockyard
-								size > 0
-								include_locked = yes
-							}
-						}
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = dockyard
-							level = 1
-							instant_build = yes
-						}
-					}
-					set_country_flag = BUL_contract_with_soviet_naval_designer_flag
-				}		
-			}
-			
-			research_bonus = {
-				naval_equipment = 0.15
-			}
-			
-			traits = { naval_manufacturer }
-		}
-
-		BUL_italian_naval_designer = {
-			name = crda
-
-			picture = crda	
-
-			cost = 75
-			
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			available = {
-				has_country_flag = BUL_italian_naval_agreements_flag
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_italian_naval_designer_flag }
-					}
-					ITA = { #Scripted trigger for this generates confusing tt due to indentation
-						has_opinion = {
-							target = ROOT
-							value > 49
-						}
-						has_capitulated = no
-						BUL_is_valid_subject = yes
-					}
-				}
-				NOT = { has_war_with = ITA }
-				OR = {
-					is_subject = no
-					is_subject_of = ITA
-				}
-				NOT = { has_completed_focus = BUL_nationalization }
-			}
-
-			on_add = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_italian_naval_designer_flag }
-					}
-					random_owned_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = dockyard
-								size > 0
-								include_locked = yes
-							}
-						}
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = dockyard
-							level = 1
-							instant_build = yes
-						}
-					}
-					set_country_flag = BUL_contract_with_italian_naval_designer_flag
-				}		
-			}
-						
-			research_bonus = {
-				naval_equipment = 0.15
-			}
-			
-			traits = { naval_manufacturer }
+		modifier = {
+			add = 10
+			tag = BUL
+			has_dlc = "Battle for the Bosporus"
 		}
 	}
+	
+	default = no
 
-	aircraft_manufacturer = {
-		
-		designer = yes
-		BUL_dar = { #DLC			
-			picture = bul_dar
-			
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
+	continuous_focus_position = { x = 50 y = 1500 }
 
-			visible = {
-				NOT = { has_completed_focus = BUL_prussia_of_the_balkans }
-			}
 
-			available = {
-				always = no
-			}
-						
-			research_bonus = {
-				air_equipment = 0.1
-			}
-			
-			traits = { light_aircraft_manufacturer }
+#### ##    ## ########  ##     ##  ######  ######## ########  ####    ###    ##          ########  ########     ###    ##    ##  ######  ##     ## 
+ ##  ###   ## ##     ## ##     ## ##    ##    ##    ##     ##  ##    ## ##   ##          ##     ## ##     ##   ## ##   ###   ## ##    ## ##     ## 
+ ##  ####  ## ##     ## ##     ## ##          ##    ##     ##  ##   ##   ##  ##          ##     ## ##     ##  ##   ##  ####  ## ##       ##     ## 
+ ##  ## ## ## ##     ## ##     ##  ######     ##    ########   ##  ##     ## ##          ########  ########  ##     ## ## ## ## ##       ######### 
+ ##  ##  #### ##     ## ##     ##       ##    ##    ##   ##    ##  ######### ##          ##     ## ##   ##   ######### ##  #### ##       ##     ## 
+ ##  ##   ### ##     ## ##     ## ##    ##    ##    ##    ##   ##  ##     ## ##          ##     ## ##    ##  ##     ## ##   ### ##    ## ##     ## 
+#### ##    ## ########   #######   ######     ##    ##     ## #### ##     ## ########    ########  ##     ## ##     ## ##    ##  ######  ##     ## 
 
-			modifier = {
-				custom_modifier_tooltip = BUL_national_military_designer_upgrade_tt
-			}
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
+ 	shared_focus = AXIS_pact_of_steel
+	focus = {
+		id = BUL_acquire_modern_tools
 
-		BUL_dar_improved = { #DLC
-			name = dar
-			
-			picture = bul_dar
-			
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			visible = {
-				has_completed_focus = BUL_prussia_of_the_balkans
-			}
-
-			available = {
-				always = no
-			}
-						
-			research_bonus = {
-				air_equipment = 0.15
-			}
-			
-			traits = { light_aircraft_manufacturer }
-			
-			modifier = {
-				air_accidents_factor = -0.05
-				air_superiority_efficiency = 0.05
-				air_intercept_efficiency = 0.05
-			}
-		}
-
-		BUL_kaproni_bulgarski = { #DLC
-			
-			picture = bul_kaproni_bulgarski
-
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			visible = {
-				NOT = { has_completed_focus = BUL_prussia_of_the_balkans }
-			}
-
-			available = {
-				always = no
-			}
-						
-			research_bonus = {
-				air_equipment = 0.1
-			}
-			
-			traits = { CAS_manufacturer }
-
-			modifier = {
-				custom_modifier_tooltip = BUL_national_military_designer_upgrade_tt
-			}
-		}
-		
-		BUL_german_aircraft_designer = { #DLC
-			name = heinkel
-
-			picture = heinkel
-
-			cost = 75
-
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			available = {
-				has_country_flag = BUL_german_aeronautical_agreements_flag
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_german_aircraft_designer_flag }
-					}
-					GER = { #Scripted trigger for this generates confusing tt due to indentation
-						has_opinion = {
-							target = ROOT
-							value > 49
-						}
-						has_capitulated = no
-						BUL_is_valid_subject = yes
-					}
-				}
-				NOT = { has_war_with = GER }
-				OR = {
-					is_subject = no
-					is_subject_of = GER
-				}
-				NOT = { has_completed_focus = BUL_nationalization }
-			}
-
-			on_add = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_german_aircraft_designer_flag }
-					}
-					random_owned_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = arms_factory
-								size > 0
-								include_locked = yes
-							}
-						}
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
-					set_country_flag = BUL_contract_with_german_aircraft_designer_flag
-				}		
-			}
-						
-			research_bonus = {
-				air_equipment = 0.15
-			}
-			
-			traits = { heavy_aircraft_manufacturer }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-
-		BUL_british_aircraft_designer = { #DLC
-			name = fairey_aviation
-			
-			picture = fairey_aviation
-
-			cost = 75
-
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			available = {
-				has_country_flag = BUL_british_aeronautical_agreements_flag
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_british_aircraft_designer_flag }
-					}
-					ENG = { #Scripted trigger for this generates confusing tt due to indentation
-						has_opinion = {
-							target = ROOT
-							value > 49
-						}
-						has_capitulated = no
-						BUL_is_valid_subject = yes
-					}
-				}
-				NOT = { has_war_with = ENG }
-				OR = {
-					is_subject = no
-					is_subject_of = ENG
-				}
-				NOT = { has_completed_focus = BUL_nationalization }
-			}
-
-			on_add = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_british_aircraft_designer_flag }
-					}
-					random_owned_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = arms_factory
-								size > 0
-								include_locked = yes
-							}
-						}
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
-					set_country_flag = BUL_contract_with_british_aircraft_designer_flag
-				}		
-			}
-						
-			research_bonus = {
-				air_equipment = 0.15
-			}
-			
-			traits = { naval_aircraft_manufacturer }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-
-		BUL_soviet_aircraft_designer = { #DLC
-			name = ilyushin_design_bureau
-			
-			picture = ilyushin_design_bureau
-
-			cost = 75
-
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			available = {
-				has_country_flag = BUL_soviet_aeronautical_agreements_flag
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_soviet_aircraft_designer_flag }
-					}
-					SOV = { #Scripted trigger for this generates confusing tt due to indentation
-						has_opinion = {
-							target = ROOT
-							value > 49
-						}
-						has_capitulated = no
-						BUL_is_valid_subject = yes
-					}
-				}
-				NOT = { has_war_with = SOV }
-				OR = {
-					is_subject = no
-					is_subject_of = SOV
-				}
-				NOT = { has_completed_focus = BUL_nationalization }
-			}
-
-			on_add = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_soviet_aircraft_designer_flag }
-					}
-					random_owned_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = arms_factory
-								size > 0
-								include_locked = yes
-							}
-						}
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
-					set_country_flag = BUL_contract_with_soviet_aircraft_designer_flag
-				}		
-			}
-						
-			research_bonus = {
-				air_equipment = 0.15
-			}
-			
-			traits = { medium_aircraft_manufacturer }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		dar = { #VANILLA
-			
-			picture = generic_air_manufacturer_1
-
-			
-			allowed = {
-				original_tag = BUL
-				NOT = { has_dlc = "Battle for the Bosporus" }
-			}
-						
-			research_bonus = {
-				air_equipment = 0.15
-			}
-			
-			traits = { light_aircraft_manufacturer }
-			
-			# licenced Focke-Wulf Fw 44, built own trainers DAR 6 and DAR 9.
-			
-			ai_will_do = {
-				factor = 1
+		icon = GFX_goal_generic_production2
+		x = 10
+		y = 0
+		cost = 5
+		available = {
+			BUL = { is_ai = no }
+			OR = {
+				NOT = { has_completed_focus = BUL_the_path_towards_a_greater_bulgaria }
+				date > 1937.03.01
 			}
 		}	
-	}
+		available = {
 
-	materiel_manufacturer = {
+		}
 		
-		designer = yes
-		
-		BUL_dvf = { #DLC
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_ideas = BUL_national_industry_01
 
-			picture = bul_darzhavna_voenna_fabrika
-			
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
+			add_tech_bonus = {
+				name = BUL_acquire_modern_tools
+				bonus = 1
+				uses = 1
+				technology = advanced_machine_tools
+				technology = flexible_line
+				technology = assembly_line_production
+				technology = streamlined_line
+				technology = concentrated_industry3
+				technology = concentrated_industry4
+				technology = concentrated_industry5
+				technology = dispersed_industry3 
+				technology = dispersed_industry4 
+				technology = dispersed_industry5
 			}
-
-			visible = {
-				NOT = { has_completed_focus = BUL_prussia_of_the_balkans }
-			}
-
-			available = {
-				has_completed_focus = BUL_darzhavna_voenna_fabrika
-			}
-			
-			research_bonus = {
-				infantry_weapons = 0.1
-			}
-			
-			traits = { infantry_equipment_manufacturer }
-			
-			modifier = {
-				custom_modifier_tooltip = BUL_national_military_designer_upgrade_tt
-			}
-		}
-
-		BUL_dvf_improved = { #DLC
-			name = BUL_dvf
-
-			picture = bul_darzhavna_voenna_fabrika
-			
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			visible = {
-				has_completed_focus = BUL_prussia_of_the_balkans
-			}
-
-			available = {
-				has_completed_focus = BUL_darzhavna_voenna_fabrika
-			}
-			
-			research_bonus = {
-				infantry_weapons = 0.15
-			}
-			
-			traits = { infantry_equipment_manufacturer }
-			
-			modifier = {
-				army_infantry_attack_factor = 0.03
-				army_infantry_defence_factor = 0.03
-			}
-		}
-
-		BUL_dvf_sopot = { #DLC
-
-			picture = generic_artillery_manufacturer_1
-			
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			visible = {
-				NOT = { has_completed_focus = BUL_prussia_of_the_balkans }
-			}
-
-			available = {
-				has_completed_focus = BUL_found_dvf_sopot
-			}
-			
-			research_bonus = {
-				artillery = 0.1
-			}
-			
-			traits = { artillery_manufacturer }
-			
-			modifier = {
-				custom_modifier_tooltip = BUL_national_military_designer_upgrade_tt
-			}
-		}
-
-		BUL_dvf_sopot_improved = { #DLC
-			name = BUL_dvf_sopot
-
-			picture = generic_artillery_manufacturer_1
-			
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			visible = {
-				has_completed_focus = BUL_prussia_of_the_balkans
-			}
-
-			available = {
-				has_completed_focus = BUL_found_dvf_sopot
-			}
-			
-			research_bonus = {
-				artillery = 0.15
-			}
-			
-			traits = { artillery_manufacturer }
-			
-			modifier = {
-				army_artillery_attack_factor = 0.03
-				army_artillery_defence_factor = 0.03
-			}
-		}
-
-		BUL_german_materiel_designer = { #DLC
-			name = opel
-
-			picture = opel
-
-			cost = 75
-			
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			available = {
-				has_country_flag = BUL_german_military_agreements_flag
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_german_materiel_designer_flag }
-					}
-					GER = { #Scripted trigger for this generates confusing tt due to indentation
-						has_opinion = {
-							target = ROOT
-							value > 49
-						}
-						has_capitulated = no
-						BUL_is_valid_subject = yes
-					}
-				}
-				NOT = { has_war_with = GER }
-				OR = {
-					is_subject = no
-					is_subject_of = GER
-				}
-				NOT = { has_completed_focus = BUL_nationalization }
-			}
-
-			on_add = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_german_materiel_designer_flag }
-					}
-					random_owned_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = arms_factory
-								size > 0
-								include_locked = yes
-							}
-						}
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
-					set_country_flag = BUL_contract_with_german_materiel_designer_flag
-				}		
-			}
-			
-			research_bonus = {
-				motorized_equipment = 0.15
-			}
-			
-			traits = { motorized_equipment_manufacturer }
-		}
-
-		BUL_british_materiel_designer = { #DLC
-			name = vauxhall
-
-			picture = vauxhall
-
-			cost = 75
-			
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			available = {
-				has_country_flag = BUL_british_military_agreements_flag
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_british_materiel_designer_flag }
-					}
-					ENG = { #Scripted trigger for this generates confusing tt due to indentation
-						has_opinion = {
-							target = ROOT
-							value > 49
-						}
-						has_capitulated = no
-						BUL_is_valid_subject = yes
-					}
-				}
-				NOT = { has_war_with = ENG }
-				OR = {
-					is_subject = no
-					is_subject_of = ENG
-				}
-				NOT = { has_completed_focus = BUL_nationalization }
-			}
-
-			on_add = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_british_materiel_designer_flag }
-					}
-					random_owned_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = arms_factory
-								size > 0
-								include_locked = yes
-							}
-						}
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
-					set_country_flag = BUL_contract_with_british_materiel_designer_flag
-				}		
-			}
-			
-			research_bonus = {
-				motorized_equipment = 0.15
-			}
-			
-			traits = { motorized_equipment_manufacturer }
-		}
-
-		BUL_soviet_materiel_designer = { #DLC
-			name = gaz
-
-			picture = gaz
-
-			cost = 75
-			
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			available = {
-				has_country_flag = BUL_soviet_military_agreements_flag
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_soviet_materiel_designer_flag }
-					}
-					SOV = { #Scripted trigger for this generates confusing tt due to indentation
-						has_opinion = {
-							target = ROOT
-							value > 49
-						}
-						has_capitulated = no
-						BUL_is_valid_subject = yes
-					}
-				}
-				NOT = { has_war_with = SOV }
-				OR = {
-					is_subject = no
-					is_subject_of = SOV
-				}
-				NOT = { has_completed_focus = BUL_nationalization }
-			}
-
-			on_add = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_soviet_materiel_designer_flag }
-					}
-					random_owned_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = arms_factory
-								size > 0
-								include_locked = yes
-							}
-						}
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
-					set_country_flag = BUL_contract_with_soviet_materiel_designer_flag
-				}		
-			}
-			
-			research_bonus = {
-				motorized_equipment = 0.15
-				mot_rockets = 0.50
-			}
-			
-			traits = { motorized_equipment_manufacturer }
-		}
-
-		BUL_italian_materiel_designer = {
-			
-			name = lancia
-
-			picture = lancia
-
-			cost = 75
-
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			available = {
-				has_country_flag = BUL_italian_military_agreements_flag
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_italian_materiel_designer_flag }
-					}
-					ITA = { #Scripted trigger for this generates confusing tt due to indentation
-						has_opinion = {
-							target = ROOT
-							value > 49
-						}
-						has_capitulated = no
-						BUL_is_valid_subject = yes
-					}
-				}
-				NOT = { has_war_with = ITA }
-				OR = {
-					is_subject = no
-					is_subject_of = ITA
-				}
-				NOT = { has_completed_focus = BUL_nationalization }
-			}
-
-			on_add = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = BUL_contract_with_italian_materiel_designer_flag }
-					}
-					random_owned_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = arms_factory
-								size > 0
-								include_locked = yes
-							}
-						}
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
-					set_country_flag = BUL_contract_with_italian_materiel_designer_flag
-				}		
-			}
-			
-			research_bonus = {
-				motorized_equipment = 0.15
-			}
-			
-			traits = { motorized_equipment_manufacturer }
 		}
 	}
 
-	industrial_concern = {
-		
-		BUL_petrol_ad = {
-			
-			picture = bul_petrol_ad
-		
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}	
+	focus = {
+		id = BUL_improve_the_road_system
 
-			visible = {
-				NOT = { has_completed_focus = BUL_utmost_optimization }
+		prerequisite = { focus = BUL_acquire_modern_tools }
+		icon = GFX_goal_generic_construction
+		relative_position_id = BUL_acquire_modern_tools
+		x = -6
+		y = 1
+		cost = 10
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					has_state_flag = BUL_initial_bulgarian_state_flag
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
 			}
+			48 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
 
-			available = {
-				OR = {
-					has_completed_focus = BUL_invigorate_national_industry
-					has_completed_focus = BUL_nationalization
+	focus = {
+		id = BUL_attract_foreign_capitals
+
+		prerequisite = { focus = BUL_improve_the_road_system }
+		icon = GFX_goal_generic_intelligence_exchange
+		relative_position_id = BUL_improve_the_road_system
+		x = -2
+		y = 1
+		cost = 10
+		mutually_exclusive = { focus = BUL_invigorate_national_industry }
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL}
+		completion_reward = {
+			add_ideas = MEFO_bills_axis_minor
+			custom_effect_tooltip = ROM_NDI_focus_tt
+			48 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
 				}
 			}
 			
-			research_bonus = {
-				synth_resources = 0.15
-				industry = 0.05
+			hidden_effect = {
+				set_variable = { BFI_RF = 0 }
+				set_variable = { BFI_EGF = 0 }
+				set_variable = { BFI_SEF = 0 }
+				add_dynamic_modifier = { modifier = BUL_foreign_industry }
 			}
-			
-			traits = { refinery_concern }
-
-			modifier = {
-				custom_modifier_tooltip = BUL_national_industrial_concern_upgrade_tt
-			}			
+			custom_effect_tooltip = "Enables decision to invite foreign inverstors giving us signivicant industrial buffs" 
 		}
+	}
 
-		BUL_petrol_ad_improved = {
-			name = BUL_petrol_ad
+	focus = {
+		id = BUL_invigorate_national_industry
 
-			picture = bul_petrol_ad
-		
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
+		prerequisite = { focus = BUL_improve_the_road_system }
+		icon = GFX_focus_generic_industry_1
+		relative_position_id = BUL_improve_the_road_system
+		x = 0
+		y = 1
+		cost = 10
+		mutually_exclusive = { focus = BUL_attract_foreign_capitals }
 
-			visible = {
-				has_completed_focus = BUL_invigorate_national_industry
-				has_completed_focus = BUL_utmost_optimization
-			}	
-			
-			research_bonus = {
-				synth_resources = 0.15
-				industry = 0.05
-			}
-			
-			traits = { refinery_concern }
-			
-			modifier = {
-				fuel_gain_factor_from_states = 0.1
-				production_oil_factor = 0.05
-			}
+		available = {
+
 		}
-
-		BUL_ira = {
-			
-			picture = bul_ira
 		
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			visible = {
-				NOT = { has_completed_focus = BUL_utmost_optimization }
-			}
-
-			available = {
-				OR = {
-					has_completed_focus = BUL_invigorate_national_industry
-					has_completed_focus = BUL_nationalization
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			212 = {
+				add_extra_state_shared_building_slots = 6
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
 				}
+			}
+			swap_ideas = {
+				remove_idea = BUL_national_industry_01
+				add_idea = BUL_national_industry_02
+			}
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = BUL_petrol_ad
+			show_ideas_tooltip = BUL_ira
+			show_ideas_tooltip = BUL_pirin
+			show_ideas_tooltip = BUL_vulkan_cement
+
+			add_ai_strategy = {
+				type = building_target
+				id = industrial_complex
+				value = 17
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_expand_sofia_university
+
+		prerequisite = { focus = BUL_attract_foreign_capitals focus = BUL_invigorate_national_industry }
+		icon = GFX_focus_research
+		relative_position_id = BUL_attract_foreign_capitals
+		x = 1
+		y = 1
+		cost = 10
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = BUL_expand_the_tobacco_industry
+
+		prerequisite = { focus = BUL_attract_foreign_capitals }
+		prerequisite = { focus = BUL_expand_sofia_university }
+		icon = GFX_goal_generic_construct_civ_factory
+		relative_position_id = BUL_expand_sofia_university
+		x = -1
+		y = 1
+		cost = 10
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			212 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_ideas = BUL_tobacco_exports
+		}
+	}
+
+	focus = {
+		id = BUL_nationalization
+
+		prerequisite = { focus = BUL_expand_the_tobacco_industry }
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		relative_position_id = BUL_expand_the_tobacco_industry
+		x = 0
+		y = 1
+		cost = 10
+
+		available = {
+			NOT = { has_idea = BUL_second_national_catastrophe }
+		}
+
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			add_ideas = BUL_nationalized_industry
+		}
+	}
+
+	focus = {
+		id = BUL_increase_industry_investments
+
+		prerequisite = { focus = BUL_invigorate_national_industry }
+		prerequisite = { focus = BUL_expand_sofia_university }
+		icon = GFX_focus_generic_industry_2
+		relative_position_id = BUL_expand_sofia_university
+		x = 1
+		y = 1
+		cost = 10
+
+
+		available = {
+			num_of_civilian_factories > 20
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			48 = {
+				add_extra_state_shared_building_slots = 6
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			swap_ideas = {
+				remove_idea = BUL_national_industry_02
+				add_idea = BUL_national_industry_03
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_utmost_optimization
+
+		prerequisite = { focus = BUL_increase_industry_investments }
+		icon = GFX_focus_generic_industry_3
+		relative_position_id = BUL_increase_industry_investments
+		x = 0
+		y = 1
+		cost = 10
+
+		available = {
+			NOT = { has_idea = BUL_second_national_catastrophe }
+			num_of_factories > 29
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = BUL_national_industry_03
+				add_idea = BUL_national_industry_04
+			}
+			BUL_replace_national_industrial_designer = yes	
+		}
+	}
+
+	focus = {
+		id = BUL_national_railway_lines
+
+		prerequisite = { focus = BUL_improve_the_road_system }
+		icon = GFX_goal_generic_construct_infrastructure
+		relative_position_id = BUL_improve_the_road_system
+		x = 2
+		y = 2
+		cost = 5
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						has_state_flag = BUL_initial_bulgarian_state_flag
+						has_state_flag = BUL_historical_bulgarian_claim_flag
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			if = {
+				limit = {
+					controls_state = 801
+					controls_state = 211
+				}
+				build_railway = {
+					path = { 949 3971 3952 3819 6842 9769 649 9783}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 212
+				}
+				build_railway = { 
+					path = { 949 3908 3937 6923 }
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 212
+					controls_state = 211
+				}
+				build_railway = { 
+					path = { 6923 9862 9888 9902 }
+				}
+			}
+			if = {
+				limit = { 
+					has_full_control_of_state = 803 
+					has_full_control_of_state = 106
+				}
+				build_railway = {
+					level = 2
+					path = { 949 935 907 3882 }
+				}
+			}				
+		}
+	}
+
+	focus = {
+		id = BUL_steel_plant_in_pernik
+
+		prerequisite = { focus = BUL_national_railway_lines }
+		icon = GFX_focus_generic_steel
+		relative_position_id = BUL_national_railway_lines
+		x = 0
+		y = 1
+		cost = 5
+
+		available = {
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BUL_mineral_extraction_in_the_rhodopes
+				ahead_reduction = 2
+			    bonus = 1.0
+			    uses = 1
+			    category = industry
+			}
+			48 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}	
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_mineral_extraction_in_the_rhodopes
+
+		prerequisite = { focus = BUL_steel_plant_in_pernik }
+		icon = GFX_goal_generic_construction2
+		relative_position_id = BUL_steel_plant_in_pernik
+		x = 0
+		y = 1
+		cost = 5
+
+		available = {
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BUL_mineral_extraction_in_the_rhodopes
+			    bonus = 1.0
+			    uses = 1
+			    category = industry
+			}
+			212 = {
+				add_resource = {
+					type = chromium
+					amount = 10
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_uranium_prospecting
+
+		prerequisite = { focus = BUL_mineral_extraction_in_the_rhodopes }
+		prerequisite = { focus = BUL_utmost_optimization focus = BUL_nationalization }
+		icon = GFX_goal_generic_secret_weapon
+		relative_position_id = BUL_utmost_optimization
+		x = 1
+		y = 1
+		cost = 5
+
+		available = {
+			has_tech = excavation3
+			controls_state = 48
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BUL_uranium_prospecting
+			    bonus = 2.0
+			    uses = 2
+			    category = nuclear
+			}
+			add_ideas = BUL_buhovo_uranium_mines
+		}
+	}
+
+	focus = {
+		id = BUL_negotiate_bulgarian_rearmament
+
+		prerequisite = { focus = BUL_acquire_modern_tools }
+		icon = GFX_focus_generic_combined_arms
+		relative_position_id = BUL_acquire_modern_tools
+		x = 0
+		y = 1
+		cost = 5
+
+		bypass = {
+				NOT = { has_idea = BUL_army_restrictions_aat }
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER}
+		completion_reward = {
+			unlock_decision_category_tooltip = BUL_rearmament
+		}
+	}
+
+	focus = {
+		id = BUL_reorganize_the_military_industry
+
+		prerequisite = { focus = BUL_negotiate_bulgarian_rearmament }
+		icon = GFX_focus_generic_tank_production
+		relative_position_id = BUL_negotiate_bulgarian_rearmament
+		x = 0
+		y = 1
+		cost = 10
+
+		available = {
+			NOT = { has_idea = BUL_army_restrictions_aat }
+		}
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			212 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = BUL_reorganize_the_military_industry
+			    bonus = 1.0
+			    uses = 1
+			    category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_darzhavna_voenna_fabrika
+
+		prerequisite = { focus = BUL_reorganize_the_military_industry }
+		icon = GFX_goal_generic_construct_mil_factory
+		relative_position_id = BUL_reorganize_the_military_industry
+		x = -2
+		y = 1
+		cost = 5
+
+		available = {
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			212 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = BUL_darzhavna_voenna_fabrika
+			    bonus = 1.0
+			    uses = 2
+				category = infantry_weapons
+				category = support_tech
+			}
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+
+				mio:BUL_dvf_organization = {
+					add_mio_size = 2
+				}
+			}
+			ELSE = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = BUL_dvf
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_found_dvf_sopot
+
+		prerequisite = { focus = BUL_darzhavna_voenna_fabrika }
+		icon = GFX_goal_generic_army_artillery
+		relative_position_id = BUL_darzhavna_voenna_fabrika
+		x = 1
+		y = 1
+		cost = 10
+
+		available = {
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			212 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = BUL_found_dvf_sopot
+			    bonus = 1.0
+			    uses = 2
+				category = artillery
+			}
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+
+				mio:BUL_dvf_sopot_organization = {
+					add_mio_size = 2
+				}
+			}
+			ELSE = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = BUL_dvf_sopot
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_contract_foreign_companies
+
+		prerequisite = { focus = BUL_reorganize_the_military_industry }
+		icon = GFX_focus_generic_license_production
+		relative_position_id = BUL_reorganize_the_military_industry
+		x = 0
+		y = 1
+		cost = 5
+
+		available = {
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			add_ideas = JUNO_license_idea
+		}
+	}
+
+	focus = {
+		id = BUL_rebuild_the_army
+
+		prerequisite = { focus = BUL_reorganize_the_military_industry }
+		icon = GFX_focus_generic_little_entente
+		relative_position_id = BUL_reorganize_the_military_industry
+		x = 2
+		y = 1
+		cost = 5
+
+		available = {
+		}
+		
+		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_MANPOWER}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = BUL_rebuild_the_army
+			    cost_reduction = 0.5
+			    uses = 2
+				category = land_doctrine
+			}
+			if = {
+				limit = { has_idea = BUL_bulgarian_army_02 }
+				swap_ideas = {
+					remove_idea = BUL_bulgarian_army_02
+					add_idea = BUL_bulgarian_army_03
+				}
+			}
+			else = {
+				add_ideas = BUL_bulgarian_army_01
+			}
+			if = {
+				limit = { has_idea = disarmed_nation }
+				add_ideas = volunteer_only
+			}
+			if = {
+				limit = { has_idea = volunteer_only }
+				add_ideas = limited_conscription
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_vasil_levsky_national_military_university
+
+		prerequisite = { focus = BUL_rebuild_the_army }
+		prerequisite = { focus = BUL_darzhavna_voenna_fabrika }
+		icon = GFX_focus_research
+		relative_position_id = BUL_found_dvf_sopot
+		x = 2
+		y = 0
+		cost = 10
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			army_experience = 15
+			add_doctrine_cost_reduction = {
+				name = BUL_vasil_levsky_national_military_university
+			    cost_reduction = 0.5
+			    uses = 2
+				category = land_doctrine
+			}
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = BUL_prussia_of_the_balkans
+
+		prerequisite = { focus = BUL_vasil_levsky_national_military_university }
+		prerequisite = { focus = BUL_found_dvf_sopot }
+		icon = GFX_focus_BUL_prussia_of_the_balkans
+		relative_position_id = BUL_vasil_levsky_national_military_university
+		x = -1
+		y = 1
+		cost = 10
+
+		available = {
+		}
+		
+		search_filters = {FOCUS_FILTER_MANPOWER FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			if = {
+				limit = { has_idea = BUL_bulgarian_army_01 }
+				swap_ideas = {
+					remove_idea = BUL_bulgarian_army_01
+					add_idea = BUL_prussia_of_the_balkans_01
+				}
+			}
+			else_if = {
+				limit = { has_idea = BUL_bulgarian_army_03 }
+				swap_ideas = {
+					remove_idea = BUL_bulgarian_army_03
+					add_idea = BUL_prussia_of_the_balkans_01
+				}
+			}
+			else = {
+				effect_tooltip = {
+					remove_ideas = BUL_bulgarian_army_01
+				}
+				add_ideas = BUL_prussia_of_the_balkans_01
+			}
+			BUL_replace_national_aircraft_designer = yes
+		}
+	}
+
+	focus = {
+		id = BUL_national_military_academy
+
+		prerequisite = { focus = BUL_negotiate_bulgarian_rearmament }
+		icon = GFX_focus_generic_military_academy
+		relative_position_id = BUL_negotiate_bulgarian_rearmament
+		x = 2
+		y = 1
+		cost = 5
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			army_experience = 15
+			add_doctrine_cost_reduction = {
+				name = BUL_national_military_academy
+			    cost_reduction = 0.5
+			    uses = 1
+				category = land_doctrine
+			}
+			if = {
+				limit = { has_idea = BUL_bulgarian_army_01}
+				swap_ideas = {
+					remove_idea = BUL_bulgarian_army_01
+					add_idea = BUL_bulgarian_army_03
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { has_completed_focus = BUL_prussia_of_the_balkans }
+				}
+				add_ideas = BUL_bulgarian_army_02
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_war_logistics
+
+		prerequisite = { focus = BUL_negotiate_bulgarian_rearmament }
+		icon = GFX_goal_generic_army_motorized
+		relative_position_id = BUL_negotiate_bulgarian_rearmament
+		x = -2
+		y = 1
+		cost = 10
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BUL_war_logistics
+			    bonus = 0.5
+			    ahead_reduction = 2
+			    uses = 2
+				category = support_tech
+			}
+			add_tech_bonus = {
+				name = BUL_war_logistics
+			    bonus = 1
+			    uses = 1
+				category = motorized_equipment
+			}
+		}
+	}
+
+
+##     ## ####  ######  ########  #######  ########  ####  ######     ###    ##          ########  ########     ###    ##    ##  ######  ##     ## 
+##     ##  ##  ##    ##    ##    ##     ## ##     ##  ##  ##    ##   ## ##   ##          ##     ## ##     ##   ## ##   ###   ## ##    ## ##     ## 
+##     ##  ##  ##          ##    ##     ## ##     ##  ##  ##        ##   ##  ##          ##     ## ##     ##  ##   ##  ####  ## ##       ##     ## 
+#########  ##   ######     ##    ##     ## ########   ##  ##       ##     ## ##          ########  ########  ##     ## ## ## ## ##       ######### 
+##     ##  ##        ##    ##    ##     ## ##   ##    ##  ##       ######### ##          ##     ## ##   ##   ######### ##  #### ##       ##     ## 
+##     ##  ##  ##    ##    ##    ##     ## ##    ##   ##  ##    ## ##     ## ##          ##     ## ##    ##  ##     ## ##   ### ##    ## ##     ## 
+##     ## ####  ######     ##     #######  ##     ## ####  ######  ##     ## ########    ########  ##     ## ##     ## ##    ##  ######  ##     ## 
+
+
+
+########    ###     ######   ######  ####  ######  ########    ########  ########     ###    ##    ##  ######  ##     ## 
+##         ## ##   ##    ## ##    ##  ##  ##    ##    ##       ##     ## ##     ##   ## ##   ###   ## ##    ## ##     ## 
+##        ##   ##  ##       ##        ##  ##          ##       ##     ## ##     ##  ##   ##  ####  ## ##       ##     ## 
+######   ##     ##  ######  ##        ##   ######     ##       ########  ########  ##     ## ## ## ## ##       ######### 
+##       #########       ## ##        ##        ##    ##       ##     ## ##   ##   ######### ##  #### ##       ##     ## 
+##       ##     ## ##    ## ##    ##  ##  ##    ##    ##       ##     ## ##    ##  ##     ## ##   ### ##    ## ##     ## 
+##       ##     ##  ######   ######  ####  ######     ##       ########  ##     ## ##     ## ##    ##  ######  ##     ## 
+
+
+	focus = {
+		id = BUL_power_to_the_tsar
+
+		icon = GFX_focus_BUL_power_to_the_tsar
+		relative_position_id = BUL_acquire_modern_tools
+		x = 7
+		y = 0
+		cost = 1
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS}
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			add_political_power = 50
+			add_stability = -0.05
+			add_ideas = BUL_tsar_boris_positive_01
+
+			BUL_zveno_low_loyalty_decrease_effect = yes
+			BUL_bs_low_loyalty_decrease_effect = yes
+			BUL_bzns_low_loyalty_decrease_effect = yes
+			BUL_nsm_low_loyalty_increase_effect = yes
+			custom_effect_tooltip = BUL_power_to_the_tsar_tt
+		}
+	}
+
+	focus = {
+		id = BUL_appoint_right_wing_ministers
+
+		prerequisite = { focus = BUL_power_to_the_tsar }
+		icon = GFX_focus_generic_diplomatic_treaty
+		relative_position_id = BUL_power_to_the_tsar
+		x = 0
+		y = 1
+		cost = 10
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS}
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.2
+			}
+			if = {
+				limit = {
+					NOT = { has_government = fascism }
+				}
+				set_politics = {
+					ruling_party = fascism
+				}
+			}
+			add_political_power = 70
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = BUL_nikola_zhekov
+			BUL_zveno_low_loyalty_increase_effect = yes
+			BUL_bs_low_loyalty_decrease_effect = yes
+			BUL_bzns_low_loyalty_increase_effect = yes
+			BUL_nsm_low_loyalty_increase_effect = yes
+			custom_effect_tooltip = BUL_appoint_right_wing_ministers_tt
+		}
+	}
+
+
+
+	focus = {
+		id = BUL_condemn_macedonian_organizations
+
+		prerequisite = { focus = BUL_power_to_the_tsar  }
+		icon = GFX_focus_BUL_condemn_macedonian_organizations
+		relative_position_id = BUL_power_to_the_tsar
+		x = -2
+		y = 1
+		cost = 5
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS}
+		completion_reward = {
+			add_threat = -1
+			add_stability = 0.1
+			add_political_power = 35
+			BUL_zveno_low_loyalty_increase_effect = yes
+			BUL_bs_low_loyalty_increase_effect = yes
+			BUL_bzns_low_loyalty_increase_effect = yes
+			BUL_nsm_low_loyalty_decrease_effect = yes
+			custom_effect_tooltip = BUL_condemn_macedonian_organizations_tt
+			every_country = {
+				limit = {
+					BUL_country_seeks_macedonian_stability = yes
+				}
+				add_opinion_modifier = { 
+					target = BUL
+					modifier = BUL_condemned_imro
+				}
+			}
+
+			if = {
+				limit = {
+					has_idea = BUL_army_restrictions
+				}
+				custom_effect_tooltip = BUL_condemn_macedonian_organizations_rearmament_tt
+			}
+
+			hidden_effect = {
+				news_event = { id = bftb_news.1 hours = 8 random_hours = 4 }
+			}
+		}
+	}
+	focus = {
+		id = BUL_cooperate_with_the_zveno
+
+		prerequisite = { focus = BUL_power_to_the_tsar  }
+		icon = GFX_focus_BUL_cooperate_with_the_zveno
+		relative_position_id = BUL_power_to_the_tsar
+		x = 2
+		y = 1
+		cost = 5
+
+		available = {
+			NOT = {	has_country_flag = BUL_zveno_destroyed_flag } #Zveno is not destroyed
+			hidden_trigger = {
+				NOT = { has_active_mission = BUL_impending_zveno_coup }	#Zveno coup mission is not ongoing
+				NOT = { has_country_flag = BUL_zveno_coup_flag } #Zveno CW has not started
+			}
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_INTERNAL_AFFAIRS}
+		completion_reward = {
+			add_political_power = 50
+			BUL_zveno_low_loyalty_increase_effect = yes
+			BUL_zveno_low_popularity_increase_effect = yes
+			BUL_bzns_low_loyalty_decrease_effect = yes
+			BUL_nsm_low_loyalty_decrease_effect = yes
+			custom_effect_tooltip = BUL_cooperate_with_the_zveno_tt
+			custom_effect_tooltip = BUL_cooperate_with_the_zveno_coup_tt
+		}
+	}
+	focus = {
+		id = BUL_promote_bulgarian_nationalism
+
+		prerequisite = { focus = BUL_appoint_right_wing_ministers }
+		icon = GFX_focus_BUL_promote_bulgarian_nationalism
+		relative_position_id = BUL_appoint_right_wing_ministers
+		x = -3
+		y = 2
+		cost = 10
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT}
+		completion_reward = {
+			add_political_power = 70
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = BUL_crush_the_communists
+
+		prerequisite = { focus = BUL_appoint_right_wing_ministers }
+		icon = GFX_focus_spr_crush_the_revolution
+		relative_position_id = BUL_appoint_right_wing_ministers
+		x = 0
+		y = 1
+		cost = 5
+
+		available = {
+			NOT = { has_country_flag = BUL_bs_legalized_flag }
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS}
+		completion_reward = {
+			add_political_power = 70
+			add_popularity = {
+				ideology = communism
+				popularity = -0.10
+			}
+			BUL_zveno_low_loyalty_increase_effect = yes
+			BUL_bs_high_loyalty_decrease_effect = yes
+			BUL_bs_medium_popularity_decrease_effect = yes
+			BUL_bzns_low_loyalty_increase_effect = yes
+			BUL_nsm_low_loyalty_increase_effect = yes
+
+			#Reduce Oppress Broad Socialists decisions cost
+			divide_variable = { BUL_broad_socialist_opression_cost_standard = 2 }
+			custom_effect_tooltip = BUL_reduced_communist_oppression_cost_tt
+
+			#Stability impact
+			hidden_effect = {
+				set_variable = { stability_impact = BUL_bs_popularity }
+				divide_variable = { stability_impact = 1000 }
+				add_to_variable = { stability_impact = party_popularity@communism }
+				multiply_variable = { stability_impact = -1 }
+				add_stability = stability_impact
+			}
+			custom_effect_tooltip = BUL_stability_impact_tt
+			custom_effect_tooltip = BUL_crush_the_communists_tt
+			if = {
+				limit = {
+					NOT = { has_completed_focus = BUL_appoint_right_wing_ministers }
+				}
+				custom_effect_tooltip = BUL_crush_the_communists_no_cooperation_tt
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_limited_womens_suffrage
+
+		prerequisite = { focus = BUL_appoint_right_wing_ministers }
+
+		icon = GFX_focus_generic_concessions
+		relative_position_id = BUL_appoint_right_wing_ministers
+		x = -2
+		y = 1
+		cost = 10
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
+		completion_reward = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.15
+			}
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.05
+				}
+			}
+			else = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.05
+				}
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = BUL_dimitrana_ivanova
+		}
+	}
+
+	focus = {
+		id = BUL_found_the_brannik
+
+		prerequisite = { focus = BUL_promote_bulgarian_nationalism }
+
+		icon = GFX_focus_BUL_found_the_brannik
+		relative_position_id = BUL_promote_bulgarian_nationalism
+		x = 0
+		y = 2
+		cost = 10
+
+		mutually_exclusive = { focus = BUL_depose_the_tsar }
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL}
+		completion_reward = {
+			add_ideas = BUL_brannik
+		}
+	}
+
+	focus = {
+		id = BUL_bulgarian_irredentism
+
+		prerequisite = { focus = BUL_promote_bulgarian_nationalism focus = BUL_the_path_towards_a_greater_bulgaria }
+
+		icon = GFX_goal_generic_territory_or_war
+		relative_position_id = BUL_promote_bulgarian_nationalism
+		x = 1
+		y = 1
+		cost = 10
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY}
+		completion_reward = {
+			add_threat = 1
+			add_war_support = 0.1
+			swap_ideas = {
+				remove_idea = BUL_second_national_catastrophe
+				add_idea = BUL_bulgarian_irredentism
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_the_path_towards_a_greater_bulgaria
+
+		prerequisite = { focus = BUL_appoint_right_wing_ministers }
+		icon = GFX_focus_generic_strike_at_democracy1
+		relative_position_id = BUL_appoint_right_wing_ministers
+		x = -1
+		y = 2
+		cost = 10
+
+		available = {
+			OR = {
+				NOT = { has_completed_focus = BUL_acquire_modern_tools }
+				date > 1937.03.01
+			}
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_INDUSTRY FOCUS_FILTER_INTERNAL_AFFAIRS}
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = war_economy
+					}
+				}
+				add_political_power = -150
+			}
+			add_ideas = tot_economic_mobilisation
+			add_war_support = 0.25
+			#Change economy law to the next one
+			BUL_zveno_low_loyalty_increase_effect = yes
+			BUL_bs_low_loyalty_decrease_effect = yes
+			BUL_bzns_low_loyalty_decrease_effect = yes
+			BUL_nsm_low_loyalty_increase_effect = yes
+		}
+	}
+
+	focus = {
+		id = BUL_depose_the_tsar
+
+		prerequisite = { focus = BUL_the_path_towards_a_greater_bulgaria }
+		icon = GFX_focus_rom_abdicate
+		relative_position_id = BUL_the_path_towards_a_greater_bulgaria
+		x = 0
+		y = 2
+		cost = 10
+
+		mutually_exclusive = { focus = BUL_found_the_brannik }
+
+		available = {
+			fascism > 0.4
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS}
+		completion_reward = {
+			add_political_power = 70
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			remove_ideas = BUL_tsar_boris_positive_01
+			if = {
+				limit = {
+					has_idea = BUL_georgi_ivanov_kyoseivanov
+				}
+				remove_ideas = BUL_georgi_ivanov_kyoseivanov
+			}
+			random_unit_leader = {
+				limit = {
+					has_id = 1204 #Boydev
+				}
+				retire = yes
+			}
+			if = {
+				limit = {
+					has_country_leader = {
+						character = BUL_boris_iii
+					}
+				}
+				retire_country_leader = yes
+			}
+			promote_character = { 
+				character = BUL_georgi_ivanov_kyoseivanov
+				ideology = moderatism
+			}
+			add_stability = -0.1
+
+			BUL_zveno_low_loyalty_increase_effect = yes
+			BUL_bs_low_loyalty_increase_effect = yes
+			BUL_bzns_low_loyalty_increase_effect = yes
+			BUL_nsm_low_loyalty_decrease_effect = yes
+
+			custom_effect_tooltip = BUL_potential_civil_war_low_requirement_tt
+		}
+	}
+
+	focus = {
+		id = BUL_military_dictatorship
+
+		prerequisite = { focus = BUL_depose_the_tsar }
+		icon = GFX_goal_generic_political_pressure
+		relative_position_id = BUL_depose_the_tsar
+		x = -1
+		y = 1
+		cost = 10
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_MANPOWER}
+		completion_reward = {
+			add_political_power = 70
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			if = {
+				limit = {
+					NOT = { has_government = fascism }
+				}
+				set_politics = {
+					ruling_party = fascism
+				}
+			}
+			add_ideas = BUL_military_dictatorship
+		}
+	}
+
+	focus = {
+		id = BUL_allow_far_right_organizations
+
+		prerequisite = { focus = BUL_appoint_right_wing_ministers }
+		icon = GFX_goal_generic_dangerous_deal
+		relative_position_id = BUL_appoint_right_wing_ministers
+		x = 1
+		y = 2
+		cost = 10
+
+		available = {
+			NOT = { has_country_flag = BUL_nsm_media_banned_flag }
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_INTERNAL_AFFAIRS}
+		completion_reward = {
+			add_political_power = 70
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			add_stability = -0.05
+			BUL_bs_low_loyalty_decrease_effect = yes
+			BUL_bzns_low_loyalty_decrease_effect = yes
+			BUL_nsm_medium_loyalty_increase_effect = yes
+			BUL_nsm_medium_popularity_increase_effect = yes
+
+			if = {
+				limit = {
+					NOT = { has_country_flag = BUL_nsm_legalized_flag }
+				}
+				set_country_flag = BUL_nsm_legalized_flag
+				custom_effect_tooltip = BUL_allow_far_right_organizations_tt
 			}		
-			
-			research_bonus = {
-				electronics = 0.15
-			}
-			
-			traits = { electronics_developer }
-
-			modifier = {
-				custom_modifier_tooltip = BUL_national_industrial_concern_upgrade_tt
-			}	
 		}
+	}
 
-		BUL_ira_improved = {
-			name = BUL_ira
+	focus = {
+		id = BUL_integrate_the_ratniks
 
-			picture = bul_ira
-		
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
+		prerequisite = { focus = BUL_allow_far_right_organizations }
+		icon = GFX_focus_secret_rearmament
+		relative_position_id = BUL_allow_far_right_organizations
+		x = 0
+		y = 2
+		cost = 10
 
-			visible = {
-				has_completed_focus = BUL_invigorate_national_industry
-				has_completed_focus = BUL_utmost_optimization
-			}
-			
-			research_bonus = {
-				electronics = 0.15
-			}
-			
-			traits = { electronics_developer }
+		available = {
 
-			modifier = {
-				production_speed_radar_station_factor = 0.25
-				land_reinforce_rate = 0.05
-				production_factory_max_efficiency_factor = 0.05
-			}
 		}
-
-		BUL_pirin = {
-			
-			picture = bul_pirin
 		
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
+		search_filters = {FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS}
+		completion_reward = {
+			add_ideas = BUL_ratniks
+			BUL_bs_low_loyalty_decrease_effect = yes
+			BUL_bzns_low_loyalty_decrease_effect = yes
+			BUL_nsm_low_loyalty_increase_effect = yes
+		}
+	}
 
-			visible = {
-				NOT = { has_completed_focus = BUL_utmost_optimization }
-			}
+	focus = {
+		id = BUL_economic_protectionism
 
-			available = {
-				OR = {
-					has_completed_focus = BUL_invigorate_national_industry
-					has_completed_focus = BUL_nationalization
+		prerequisite = { focus = BUL_appoint_right_wing_ministers }
+		icon = GFX_focus_generic_self_management
+		relative_position_id = BUL_appoint_right_wing_ministers
+		x = 3
+		y = 1
+		cost = 10
+		available = {
+			BUL = { is_ai = no }
+		}	
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_INTERNAL_AFFAIRS}
+		completion_reward = {
+			add_ideas = BUL_government_reforms_fascists_01
+			BUL_zveno_low_loyalty_increase_effect = yes
+			BUL_nsm_low_loyalty_increase_effect = yes
+		}
+	}
+
+	focus = {
+		id = BUL_industrial_autarky
+
+		prerequisite = { focus = BUL_economic_protectionism }
+		icon = GFX_goal_reichsautobahn
+		relative_position_id = BUL_economic_protectionism
+		x = 0
+		y = 1
+		cost = 10
+
+		available = {
+			num_of_factories > 20
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_INTERNAL_AFFAIRS}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = BUL_government_reforms_fascists_01
+				add_idea = BUL_government_reforms_fascists_02
+			}
+			BUL_zveno_low_loyalty_increase_effect = yes
+			BUL_bzns_low_loyalty_decrease_effect = yes
+			BUL_nsm_low_loyalty_increase_effect = yes
+		}
+	}
+
+	focus = {
+		id = BUL_corporatism
+
+		prerequisite = { focus = BUL_industrial_autarky }
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		relative_position_id = BUL_industrial_autarky
+		x = 0
+		y = 2
+		cost = 10
+
+		available = {
+			num_of_factories > 30
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_INTERNAL_AFFAIRS}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				set_state_flag = BUL_corporatism_flag
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
 				}
 			}
-
-			research_bonus = {
-				industry = 0.15
-			}
-			
-			traits = { construction_company }
-
-			modifier = {
-				custom_modifier_tooltip = BUL_national_industrial_concern_upgrade_tt
-			}
-		}
-
-		BUL_pirin_improved = {
-			name = BUL_pirin
-
-			picture = bul_pirin
-		
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			visible = {
-				has_completed_focus = BUL_invigorate_national_industry
-				has_completed_focus = BUL_utmost_optimization
-			}
-			
-			research_bonus = {
-				industry = 0.15
-			}
-			
-			traits = { construction_company }
-
-			modifier = {
-				production_speed_buildings_factor = 0.1
-			}
-		}
-
-		BUL_vulkan_cement = {
-			
-			picture = generic_industrial_concern_3
-		
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-
-			visible = {
-				NOT = { has_completed_focus = BUL_utmost_optimization }
-			}
-
-			available = {
-				OR = {
-					has_completed_focus = BUL_invigorate_national_industry
-					has_completed_focus = BUL_nationalization
+			random_owned_state = {
+				limit = {
+					NOT = { has_state_flag = BUL_corporatism_flag }
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
 				}
 			}
+			hidden_effect = {
+				random_owned_state = {
+					limit = {
+						has_state_flag = BUL_corporatism_flag
+					}
+					clr_state_flag = BUL_corporatism_flag
+				}
+			}
+			swap_ideas = {
+				remove_idea = BUL_government_reforms_fascists_02
+				add_idea = BUL_government_reforms_fascists_03
+			}
+			BUL_nsm_low_loyalty_increase_effect = yes
+		}
+	}
 
-			modifier = {
-				custom_modifier_tooltip = BUL_national_industrial_concern_upgrade_tt
-			}
-			
-			research_bonus = {
-				industry = 0.15
-			}
-			
-			traits = { industrial_concern }
+	focus = {
+		id = BUL_peaceful_development
+
+		prerequisite = { focus = BUL_the_path_towards_a_greater_bulgaria }
+
+		icon = GFX_goal_generic_position_armies
+		relative_position_id = BUL_the_path_towards_a_greater_bulgaria
+		x = 1
+		y = 1
+		cost = 5
+
+		bypass = {
+			has_war = yes
 		}
 
-		BUL_vulkan_cement_improved = {
-			name = BUL_vulkan_cement
-			
-			picture = generic_industrial_concern_3
+		available = {
+			if = {
+				limit = {
+					has_war = yes
+				}
+				#This is intended so that the focus does not look unavailable when it can actually be bypassed
+			}
+			has_war = no
+		}
 		
-			allowed = {
-				original_tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
+		search_filters = {FOCUS_FILTER_STABILITY FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = BUL_bulgarian_administration_of_the_balkans
 
-			visible = {
-				has_completed_focus = BUL_invigorate_national_industry
-				has_completed_focus = BUL_utmost_optimization
-			}
-			
-			research_bonus = {
-				industry = 0.15
-			}
-			
-			traits = { industrial_concern }
+		prerequisite = { focus = BUL_peaceful_development  }
 
-			modifier = {
-				local_building_slots_factor = 0.05
-				local_resources_factor = 0.05
+		icon = GFX_focus_BUL_bulgarian_administration_of_the_balkans
+		relative_position_id = BUL_peaceful_development
+		x = 0
+		y = 2
+		cost = 10
+
+		available = {
+			any_state = {
+				has_state_flag = BUL_historical_bulgarian_claim_flag
+				is_fully_controlled_by = BUL
+			}
+		}
+		
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+			add_state_core = 106
+			add_state_core = 803
+			add_state_core = 731
+			add_state_core = 184
+
+			hidden_effect = {
+				news_event = { id = bftb_news.5 hours = 8 random_hours = 4 }
 			}
 		}
 	}
 
+	focus = {
+		id = BUL_restore_the_bulgarian_patriarchate
+
+		prerequisite = { focus = BUL_bulgarian_administration_of_the_balkans }
+
+		icon = GFX_focus_BUL_restore_the_bulgarian_patriarchate
+		relative_position_id = BUL_bulgarian_administration_of_the_balkans
+		x = -1
+		y = 1
+		cost = 10
+
+		available = {
+			has_stability > 0.50
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
+		completion_reward = {
+			add_ideas = BUL_bulgarian_patriarchate_restored
+
+			hidden_effect = {
+				news_event = { id = bftb_news.6 hours = 8 random_hours = 4 }
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_the_third_bulgarian_empire
+		prerequisite = { focus = BUL_bulgarian_administration_of_the_balkans }
+
+		icon = GFX_focus_BUL_the_third_bulgarian_empire
+		relative_position_id = BUL_bulgarian_administration_of_the_balkans
+		x = 1
+		y = 1
+		cost = 10
+
+		available = {
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			random_owned_state = {
+				prioritize = { 48 212 }
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				if = {
+					limit = {
+						infrastructure < 3
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+				else_if = {
+					limit = {
+						infrastructure < 5
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					any_owned_state = {
+						is_core_of = ROOT
+						has_state_flag = BUL_historical_bulgarian_claim_flag
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_core_of = ROOT
+						has_state_flag = BUL_historical_bulgarian_claim_flag
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					set_state_flag = BUL_imperial_industrial_upgrade_flag
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					if = {
+						limit = {
+							infrastructure < 5
+						}
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_core_of = ROOT
+						has_state_flag = BUL_historical_bulgarian_claim_flag
+						NOT = { has_state_flag = BUL_imperial_industrial_upgrade_flag }
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					set_state_flag = BUL_imperial_industrial_upgrade_flag
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					if = {
+						limit = {
+							infrastructure < 5
+						}
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_core_of = ROOT
+						has_state_flag = BUL_historical_bulgarian_claim_flag
+						NOT = { has_state_flag = BUL_imperial_industrial_upgrade_flag }
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					if = {
+						limit = {
+							infrastructure < 5
+						}
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				every_owned_state = {
+					limit = {
+						has_state_flag = BUL_imperial_industrial_upgrade_flag
+					}
+					clr_state_flag = BUL_imperial_industrial_upgrade_flag
+				}
+			}
+			else = {
+				custom_effect_tooltip = BUL_the_third_bulgarian_empire_tt
+			}
+
+			#Set ideology cosmetic tag to show the appropriate 3D models
+			set_country_flag = BUL_tbe_flag
+			BUL_set_appropriate_cosmetic_tag = yes
+
+			hidden_effect = {
+				news_event = { id = bftb_news.7 hours = 8 random_hours = 4 }
+			}
+
+		}
+	}
 }

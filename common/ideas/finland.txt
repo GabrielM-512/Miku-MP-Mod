@@ -1,2089 +1,1180 @@
-ideas = {
-
+focus_tree = {
+	id = finlandmod_focus
+	
 	country = {
-		finnladen_rausen = {
-
-			picture = partial_economic_mobilisation
-
-				allowed = {
-					always = no
-				}
-			
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				send_volunteer_size = 180
-				send_volunteer_divisions_required = -0.99
-			}
-		}
-		sisu = { # NO-AAT version
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				NOT = {
-					has_government = communism
-				}
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				army_morale_factor = 0.25
-				attrition = -0.1
-				army_core_attack_factor = 0.2
-				army_core_defence_factor = 0.2
-			}
-		}
-
-		winter_war_ns = {
-			picture = tur_sub_zero_survival_training
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			cancel = {
-				NOT = { has_war_with = SOV }
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				conscription = 0.03
-				mobilization_speed = 0.85
-				winter_attrition_factor = -0.1
-				army_core_defence_factor = 0.1
-			}
-		}
-
-		FIN_we_are_the_white_death_idea = {
-			picture = ger_bulwark_against_bolshevism
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				army_core_defence_factor = 0.05
-				army_attack_against_major_factor = 0.1
-				winter_attrition_factor = -0.2
-			}
-		}
-
-		FIN_embraced_by_the_white_death = {
-			picture = ENG_the_war_to_end_all_wars
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			cancel = {
-				NOT = { has_war_with = FIN }
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				truck_attrition_factor = 0.1
-				attrition = 0.2
-				winter_attrition_factor = 0.25
-				army_attack_factor = -0.1
-				war_support_factor = -0.15
-			}
-		}
-
-		FIN_the_lapland_war = {
-			picture = chi_war_of_resistance2
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				weekly_manpower = -180
-				attrition = 0.03
-				industrial_capacity_factory = -0.05
-				industrial_capacity_dockyard = -0.05
-			}
-		}
-
-		FIN_compensation_for_side_switch_bad = {
-			picture = EST_exploit_the_banks
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = 0.15
-			}
-		}
-
-		FIN_compensation_for_side_switch_good = {
-			picture = tur_balkan_central_bank_wealthy_greece
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = -0.1
-				industrial_capacity_factory = 0.05
-				industrial_capacity_dockyard = 0.05
-			}
-		}
-
-
-		####### AAT ######
-
-
-		######## FAKE NS FOR BOOKMARKS
-
-		FIN_finnish_army_fake = { #Only used for tooltip when adding the DM in focus
-			name = FIN_finnish_army
-
-			removal_cost = -1
-
-			picture = FIN_finnish_army
-
-			allowed = {
-				always = no
-			}
-
-			modifier = {
-				experience_gain_army_factor = 0.05
-				land_reinforce_rate = 0.05
-				acclimatization_cold_climate_gain_factor = 0.05
-				army_spirit_category_type_cost_factor = -0.1				
-			}
-		}
-
-		FIN_finnish_airforce_fake = { #Only used for 1939 bookmark (dynamic modifiers don't show up there)
-			name = FIN_finnish_airforce
-
-			removal_cost = -1
-
-			picture = FIN_finnish_airforce
-
-			allowed = {
-				always = no
-			}
-
-			modifier = {
-				experience_gain_air_factor = 0.05
-				air_weather_penalty = -0.05
-				air_untrained_pilots_penalty_factor = -0.2
-				air_spirit_category_type_cost_factor = -0.1
-			}
-		}
-
-		FIN_finnish_navy_fake = { #Only used for 1939 bookmark (dynamic modifiers don't show up there)
-			name = FIN_finnish_navy
-
-			removal_cost = -1
-
-			picture = FIN_finnish_navy
-
-			allowed = {
-				always = no
-			}
-
-			modifier = {
-				experience_gain_navy_factor = 0.05
-				mines_planting_by_fleets_factor = 0.05
-				navy_anti_air_attack_factor = 0.05
-				navy_spirit_category_type_cost_factor = -0.1
-			}
-		}
-
-
-		#################################
-		##### REAL NATIONAL SPIRITS #####
-		#################################
-
-		### SISU NS - AAT VERSION ###
-
-		FIN_sisu_1 = { # AAT version
-			name = sisu
-
-			picture = sisu
-
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				has_power_balance = {
-					id = FIN_power_balance
-				}
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				#army_morale_factor = 0
-				#attrition = 0
-				#army_core_attack_factor = 0
-				army_core_defence_factor = 0.05
-			}
-		}
-
-		FIN_sisu_2 = { # AAT version
-			name = sisu
-
-			picture = sisu
-
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				has_power_balance = {
-					id = FIN_power_balance
-				}
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				army_morale_factor = 0.05
-				#attrition = 0
-				#army_core_attack_factor = 0
-				army_core_defence_factor = 0.1
-			}
-		}
-
-		FIN_sisu_3 = { # AAT version
-			name = sisu
-
-			picture = sisu
-
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				has_power_balance = {
-					id = FIN_power_balance
-				}
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				army_morale_factor = 0.15
-				attrition = -0.05
-				army_core_attack_factor = 0.05
-				army_core_defence_factor = 0.15
-			}
-		}
-
-		FIN_sisu_4 = { # AAT version
-			name = sisu
-
-			picture = sisu
-
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				has_power_balance = {
-					id = FIN_power_balance
-				}
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				army_morale_factor = 0.25
-				attrition = -0.1
-				army_core_attack_factor = 0.15
-				army_core_defence_factor = 0.2
-			}
-		}
-
-		FIN_sisu_5 = { # AAT version
-			name = sisu
-
-			picture = sisu
-
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				has_power_balance = {
-					id = FIN_power_balance
-				}
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				army_morale_factor = 0.3
-				attrition = -0.15
-				army_core_attack_factor = 0.25
-				army_core_defence_factor = 0.25
-			}
-		}
-
-
-		### OTHER NS ###
-
-		FIN_public_opposition_to_the_winter_war = { #For SOVIET UNION if they reject Finnish peace demands (when FIN pushes back)
-			picture = FIN_opposition_to_winter_war
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			available = {
-				has_war_with = FIN
-			}
-
-			modifier = {
-				army_speed_factor = -0.05
-				army_morale_factor = -0.1
-				army_org_regain = -0.05
-				pocket_penalty = 0.2
-				political_power_factor = -0.1
-			}
-		}
-
-		FIN_infrastructure_effort = {
-			picture = generic_build_infrastructure
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				production_speed_infrastructure_factor = 0.2
-			}
-		}
-
-		FIN_bank_of_aland_ns = {
-			picture = tur_balkan_central_bank_wealthy_greece
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			cancel = {
-				NOT = { controls_state = 145 }
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = -0.15
-			}
-		}
-
-		FIN_hydro_electric_expansion = {
-			picture = por_hydroelectric_power
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = -0.15
-				production_speed_buildings_factor = 0.1
-			}
-		}
-
-		FIN_underground_resistance_cells_ns = {
-			name = FIN_underground_resistance_cells
-			picture = chi_war_of_resistance3
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				resistance_decay_on_our_occupied_states = -0.20
-				resistance_target_on_our_occupied_states = 0.1
-				resistance_damage_to_garrison_on_our_occupied_states = 0.1
-				target_sabotage_cost = -0.15
-				target_sabotage_factor = 0.1
-			}
-		}
-
-		FIN_underground_resistance_cells_ns_no_lar = {
-			name = FIN_underground_resistance_cells
-			picture = chi_war_of_resistance3
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				resistance_decay_on_our_occupied_states = -0.20
-				resistance_target_on_our_occupied_states = 0.1
-				resistance_damage_to_garrison_on_our_occupied_states = 0.1
-				boost_resistance_factor = 0.1
-			}
-		}
-
-		FIN_sami_pathfinders = {
-			picture = FIN_sami_pathfinders
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				winter_attrition_factor = -0.15
-				supply_combat_penalties_on_core_factor = -0.1
-				initiative_factor = 0.02
-				custom_modifier_tooltip = FIN_sami_pathfinders_recon_bonus_tt
-			}
-		}
-
-		FIN_fortification_effort = {
-			picture = generic_fortify_the_borders
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				production_speed_bunker_factor = 0.2
-			}
-		}
-
-		FIN_coastal_batteries_effort = {
-			picture = FIN_coastal_batteries_effort
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				production_speed_coastal_bunker_factor = 0.1
-				railway_gun_bombardment_factor = -0.15
-			}
-
-			equipment_bonus = {
-				railway_gun_equipment_1 = {
-					instant = yes
-					build_cost_ic = -0.25
-				}
-			}
-		}
-
-		FIN_repurposed_small_industries = {
-			picture =  generic_exploit_mines
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = -0.1
-				conversion_cost_civ_to_mil_factor = -0.4
-			}
-		}
-
-		FIN_union_of_finnish_brothers_in_arms = {
-			picture = FIN_union_of_finnish_borthers_in_arms
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				conscription_factor = 0.1
-				army_morale_factor = 0.1
-				weekly_casualties_war_support = 0.001
-			}
-		}
-
-		FIN_lotta_svard = {
-			picture = FIN_lotta_svard
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				conscription_factor = 0.1
-				custom_modifier_tooltip = FIN_lotta_svard_support_battalions_bonus_tt
-			}
-		}
-
-		FIN_militarized_society = {
-			picture =  generic_reserve_divisions
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			available = {
-				OR = {
-					has_idea = all_adults_serve
-					has_idea = scraping_the_barrel
-				}
-			}
-			
-			modifier = {
-				training_time_factor = -0.15
-				industrial_capacity_factory = 0.15
-				industrial_capacity_dockyard = 0.15
-				production_speed_buildings_factor = 0.15
-				custom_modifier_tooltip = FIN_militarized_society_requirement_tt
-			}
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = FIN
 		}
 		
-		FIN_the_lone_wolf = {
-			picture = FIN_lone_wolf
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			available = {
-				is_subject = no
-				is_in_faction = no
-				NOT = { has_government = democratic }
-				NOT = { has_government = communism }
-			}
-			
-			on_add = {
-				set_rule = { 
-					desc = FIN_the_lone_wolf
-					can_create_factions = no
-					can_join_factions = no
-					can_send_volunteers = yes
-				}
-			}
-
-			modifier = {
-				conscription_factor = 0.05
-				defensive_war_stability_factor = 0.35
-				improve_relations_maintain_cost_factor = -0.5
-				weekly_casualties_war_support = 0.005
-				weekly_bombing_war_support = 0.005
-				fascism_acceptance = 50
-				custom_modifier_tooltip = FIN_the_lone_wolf_tt
-			}
-		}
-
-		FIN_finnish_march_of_conquest = {
-			picture = FIN_finnish_march_of_conquest
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			available = {
-			}
-
-			modifier = {
-				army_core_attack_factor = 0.1
-				army_core_defence_factor = 0.1
-			}
-		}
-
-		FIN_international_volunteers = {
-			picture = generic_volunteer_expedition_bonus
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			available = {
-				has_defensive_war = yes
-			}
-
-			modifier = {
-				weekly_manpower = 600
-				army_morale_factor = 0.1
-			}
-		}
-
-		FIN_national_industry_expand = {
-			picture = SOV_third_five_year_plan_military
-			allowed = {
-				always = yes
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				industrial_capacity_factory = 0.03
-				production_speed_arms_factory_factor = 0.05
-			}
-		}
-
-		FIN_national_industry_modernize = {
-			name = FIN_national_industry_expand
-			picture = SOV_third_five_year_plan_military
-			allowed = {
-				always = yes
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				production_factory_efficiency_gain_factor = 0.1
-				production_factory_max_efficiency_factor = 0.05
-			}
-		}
-
-		FIN_national_industry_final = {
-			name = FIN_national_industry_expand
-			picture = SOV_third_five_year_plan_military
-			allowed = {
-				always = yes
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				industrial_capacity_factory = 0.03
-				production_speed_arms_factory_factor = 0.05
-				production_factory_efficiency_gain_factor = 0.1
-				production_factory_max_efficiency_factor = 0.05
-			}
-		}
-
-		#####################
-		##### SOCIALIST #####
-		#####################
-
-		FIN_popular_support_for_the_revolution = {
-			picture = SPR_masters_of_our_own_fate
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				attrition = -0.1
-				army_morale_factor = 0.1
-			}
-		}
-
-		FIN_commitment_from_construction_workers = {
-			picture = generic_production_bonus
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				industry_free_repair_factor = 1
-				industry_repair_factor = 0.5
-				consumer_goods_factor = -0.1
-			}
-		}
-
-		FIN_commitment_from_the_trade_unions = {
-			picture = eng_spirit_of_the_industrial_revolution
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				industrial_capacity_factory = 0.1
-				industrial_capacity_dockyard = 0.1
-			}
-		}
-
-		FIN_imprisoned_right_wing_leaders = {
-			picture = generic_prisoner
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				political_power_factor = -0.15
-				war_support_factor = -0.1
-			}
-		}
-
-		FIN_low_army_morale = {
-			picture = generic_army_problems
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				army_morale_factor = -0.1
-				army_org_factor = -0.1
-			}
-		}
-
-		FIN_the_workers_state = {
-			picture = FIN_the_workers_state
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				political_power_factor = 0.1
-				industrial_capacity_factory = 0.05
-				industrial_capacity_dockyard = 0.05
-				production_speed_buildings_factor = 0.05
-				conscription_factor = 0.1
-			}
-		}
-
-		FIN_the_red_watch = {
-			picture = SPR_torchbearers_of_tomorrow
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				operative_slot = 2
-				root_out_resistance_effectiveness_factor = 0.25
-				drift_defence_factor = 0.25
-				intelligence_agency_defense = 0.5
-				agency_upgrade_time = -0.3
-			}
-		}
-
-		FIN_the_red_watch_no_lar = {
-			name = FIN_the_red_watch 
-			picture = SPR_torchbearers_of_tomorrow
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				subversive_activites_upkeep = -0.25
-				foreign_subversive_activites = -0.25
-				drift_defence_factor = 0.25
-			}
-		}
-
-		FIN_finnish_federation_of_trade_unions = {
-			picture = FIN_finnish_federation_of_trade_unions
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				local_resources_factor = 0.2
-				production_factory_start_efficiency_factor = 0.1
-				consumer_goods_factor = -0.05
-			}
-		}
-
-		FIN_finnish_federation_of_trade_unions_light_industry = {
-			name = FIN_finnish_federation_of_trade_unions
-			picture = FIN_finnish_federation_of_trade_unions_light
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				local_resources_factor = 0.2
-				production_factory_start_efficiency_factor = 0.1
-				consumer_goods_factor = -0.25
-				industrial_capacity_factory = -0.05
-				industrial_capacity_dockyard = -0.05
-			}
-		}
-
-		FIN_finnish_federation_of_trade_unions_heavy_industry = {
-			name = FIN_finnish_federation_of_trade_unions
-			picture = FIN_finnish_federation_of_trade_unions_heavy
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				local_resources_factor = 0.2
-				production_factory_start_efficiency_factor = 0.1
-				consumer_goods_factor = 0.05
-				industrial_capacity_factory = 0.1
-				industrial_capacity_dockyard = 0.1
-			}
-		}
-
-
-		FIN_social_democratic_womens_union = {
-			picture = FIN_social_democratic_womens_union
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				political_power_factor = 0.1
-				production_factory_efficiency_gain_factor = 0.1
-			}
-		}
-
-		FIN_funds_from_kalevala_koru_oy = {
-			picture = FIN_funs_from_kalevala_koru_oy
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				consumer_goods_factor = -0.25
-			}
-		}
-
-		FIN_infiltrated_assets = {
-			picture = ETH_corrupt_bureaucracy
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				operative_slot = 1
-				civilian_intel_factor = 0.15
-				intel_network_gain_factor = 0.15
-				political_power_factor = 0.1
-				decryption_power = 25
-			}
-		}
-
-		FIN_infiltrated_assets_no_lar = {
-			name = FIN_infiltrated_assets 
-			picture = ETH_corrupt_bureaucracy
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				subversive_activites_upkeep = -0.25
-				decryption_factor = 0.1
-				political_power_factor = 0.1
-			}
-		}
-
-		FIN_baltic_sea_focus = {
-			picture = generic_sea_focused_navy
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				convoy_raiding_efficiency_factor = 0.1
-				convoy_escort_efficiency = 0.15
-				naval_coordination = 0.1
-				industrial_capacity_dockyard = 0.25
-			}
-		}
-
-		FIN_socialist_welfare = {
-			picture = FIN_socialist_welfare
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				consumer_goods_factor = -0.15
-				stability_factor = 0.1
-				resistance_target = -0.15
-				research_speed_factor = 0.1
-			}
-		}
-
-		FIN_soviet_threat = {
-			picture = generic_attack_soviet_union
-
-			allowed = {
-				original_tag = FIN
-			}
-		
-			removal_cost = -1
-
-			targeted_modifier = {
-				tag = SOV
-				attack_bonus_against = 0.1
-				defense_bonus_against = 0.1
-			}
-		}
-
-		FIN_german_threat = {
-			picture = FIN_german_threat
-
-			allowed = {
-				original_tag = FIN
-			}
-		
-			removal_cost = -1
-
-			targeted_modifier = {
-				tag = GER
-				attack_bonus_against = 0.1
-				defense_bonus_against = 0.1
-			}
-		}
-
-		FIN_british_threat = {
-			picture = FIN_british_threat
-
-			allowed = {
-				original_tag = FIN
-			}
-		
-			removal_cost = -1
-
-			targeted_modifier = {
-				tag = ENG
-				attack_bonus_against = 0.1
-				defense_bonus_against = 0.1
-			}
-		}
-
-		FIN_finnish_goods = {
-
-			picture = generic_supply_depot
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				has_government = communism
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = -0.1
-				supply_factor = 0.05
-			}
-		}
-
-		FIN_tactical_wargaming_department = {
-
-			picture = chi_wargaming_division
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				army_leader_start_planning_level = 1
-				max_command_power = 25
-				land_doctrine_cost_factor = -0.25
-				command_abilities_cost_factor = -0.25
-			}
-		}
-
-		FIN_patriotic_peoples_movement_ns_1 = {
-
-			picture = FIN_patriotic_peoples_movement
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				fascism_drift = 0.1
-				political_advisor_cost_factor = -0.2
-			}
-		}
-
-		FIN_patriotic_peoples_movement_ns_2 = {
-			name = FIN_patriotic_peoples_movement_ns_1
-
-			picture = FIN_patriotic_peoples_movement
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				fascism_drift = 0.1
-				political_advisor_cost_factor = -0.2
-				war_support_factor = 0.05
-				conscription = 0.005
-				training_time_army_factor = -0.1
-			}
-		}
-
-		FIN_patriotic_peoples_movement_ns_3 = {
-			name = FIN_patriotic_peoples_movement_ns_1
-
-			picture = FIN_patriotic_peoples_movement
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				fascism_drift = 0.1
-				political_advisor_cost_factor = -0.2
-				war_support_factor = 0.05
-				conscription = 0.005
-				training_time_army_factor = -0.1
-				army_morale_factor = 0.1
-				army_org_regain = 0.1
-			}
-		}
-
-		FIN_patriotic_peoples_movement_ns_4 = {
-			name = FIN_patriotic_peoples_movement_ns_1
-
-			picture = FIN_patriotic_peoples_movement
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				fascism_drift = 0.1
-				political_advisor_cost_factor = -0.2
-				war_support_factor = 0.05
-				conscription = 0.02
-				training_time_army_factor = -0.1
-				army_morale_factor = 0.1
-				army_org_regain = 0.1
-				army_core_attack_factor = 0.03
-				army_core_defence_factor = 0.03
-				modifier_army_sub_unit_militia_speed_factor = 0.05
-				modifier_army_sub_unit_militia_max_org_factor = 0.1
-			}
-		}
-
-		FIN_academic_karelian_society_ns_1 = {
-
-			picture = FIN_academic_karelian_society
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				political_power_gain = 0.15
-				research_speed_factor = 0.03
-			}
-		}
-
-		FIN_academic_karelian_society_ns_2 = {
-			name = FIN_academic_karelian_society_ns_1
-
-			picture = FIN_academic_karelian_society
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				political_power_gain = 0.15
-				research_speed_factor = 0.03
-				production_factory_efficiency_gain_factor = 0.15
-				industrial_capacity_factory = 0.05
-				industrial_capacity_dockyard = 0.05
-			}
-		}
-
-		FIN_academic_karelian_society_ns_3 = {
-			name = FIN_academic_karelian_society_ns_1
-
-			picture = FIN_academic_karelian_society
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				political_power_gain = 0.3
-				research_speed_factor = 0.1
-				production_factory_efficiency_gain_factor = 0.15
-				industrial_capacity_factory = 0.05
-				industrial_capacity_dockyard = 0.05
-
-			}
-		}
-
-		FIN_suojeluskunta_ns_1 = {
-
-			picture = FIN_suojeluskunta
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				army_core_defence_factor = 0.02
-				conscription_factor = 0.15
-				mobilization_speed = 0.25
-			}
-		}
-
-		FIN_suojeluskunta_ns_2 = {
-			name = FIN_suojeluskunta_ns_1
-
-			picture = FIN_suojeluskunta
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				army_core_defence_factor = 0.02
-				conscription_factor = 0.15
-				mobilization_speed = 0.25
-				max_command_power_mult = 0.2
-				air_advisor_cost_factor = -0.15
-				army_advisor_cost_factor = -0.15
-				navy_advisor_cost_factor = -0.15
-
-				grant_medal_cost_factor = -0.5
-			}
-		}
-
-		FIN_suojeluskunta_ns_2_no_bba = {
-			name = FIN_suojeluskunta_ns_1
-
-			picture = FIN_suojeluskunta
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				army_core_defence_factor = 0.02
-				conscription_factor = 0.15
-				mobilization_speed = 0.25
-				max_command_power_mult = 0.2
-				air_advisor_cost_factor = -0.15
-				army_advisor_cost_factor = -0.15
-				navy_advisor_cost_factor = -0.15
-
-				military_leader_cost_factor = -0.25
-			}
-		}
-
-		FIN_maan_turva = {
-
-			picture = FIN_maan_turva
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				drift_defence_factor = 0.5
-				war_support_factor = 0.05
-				
-				operative_slot = 1
-				agency_upgrade_time = -0.2
-				intelligence_agency_defense = 0.15
-			}
-		}
-
-		FIN_maan_turva_no_lar = {
-			name = FIN_maan_turva
-
-			picture = FIN_maan_turva
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				drift_defence_factor = 0.5
-				war_support_factor = 0.05
-
-				subversive_activites_upkeep = -0.25
-				foreign_subversive_activites = -0.25
-			}
-		}
-
-		FIN_test = {
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				production_lack_of_resource_penalty_factor = -0.15
-			}
-		}
 	}
+	default = no
+ 	shared_focus = AXIS_pact_of_steel	
+	focus = {
+		id = FIN_land_reform
+		text = "Land Reform"
+		icon = GFX_focus_generic_concessions
+		x = 2
+		y = 0
 
-
-##     ## #### ########  ########  ######## ##    ##    #### ########  ########    ###     ######  
-##     ##  ##  ##     ## ##     ## ##       ###   ##     ##  ##     ## ##         ## ##   ##    ## 
-##     ##  ##  ##     ## ##     ## ##       ####  ##     ##  ##     ## ##        ##   ##  ##       
-#########  ##  ##     ## ##     ## ######   ## ## ##     ##  ##     ## ######   ##     ##  ######  
-##     ##  ##  ##     ## ##     ## ##       ##  ####     ##  ##     ## ##       #########       ## 
-##     ##  ##  ##     ## ##     ## ##       ##   ###     ##  ##     ## ##       ##     ## ##    ## 
-##     ## #### ########  ########  ######## ##    ##    #### ########  ######## ##     ##  ######  
-
-
-	hidden_ideas = {
-		FIN_hidden_cas_production_ns = { #Hidden idea to apply arty production bonuses. Communicated in FIN_finnish_airforce (used as NS)
- 			name = FIN_finnish_airforce #Just in case it shows up anywhere
-			removal_cost = -1
-
-			picture = FIN_finnish_airforce
-				
-			allowed = {
-				original_tag = FIN
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-					
-			equipment_bonus = { # WARNING!! Any changes here need to be applied in the Dynamic Modifier custom tooltip. Thanks for your attention.
-				small_plane_cas_airframe = {
-					instant = yes
-					build_cost_ic = -0.05
-				}
-				cv_small_plane_cas_airframe = {
-					instant = yes
-					build_cost_ic = -0.05
-				}
-			}
+		cost = 10
+		available = {
+			is_ai = no
+		}
+		ai_will_do = {
+			factor = 8
 		}
 
-		FIN_hidden_cas_production_ns_improved = { #Hidden idea to apply arty production bonuses. Communicated in FIN_finnish_airforce (used as NS)
- 			name = FIN_finnish_airforce #Just in case it shows up anywhere
-			removal_cost = -1
-
-			picture = FIN_finnish_airforce
-				
-			allowed = {
-				original_tag = FIN
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-					
-			equipment_bonus = { # WARNING!! Any changes here need to be applied in the Dynamic Modifier custom tooltip. Thanks for your attention.
-				small_plane_cas_airframe = {
-					instant = yes
-					build_cost_ic = -0.1
-				}
-				cv_small_plane_cas_airframe = {
-					instant = yes
-					build_cost_ic = -0.1
+		completion_reward = {
+			add_ideas = finnish_subsidies1
+			111 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
 				}
 			}
-		}
-
-		FIN_hidden_fighter_production_ns = { #Hidden idea to apply arty production bonuses. Communicated in FIN_finnish_airforce (used as NS)
- 			name = FIN_finnish_airforce #Just in case it shows up anywhere
-			removal_cost = -1
-
-			picture = FIN_finnish_airforce
-				
-			allowed = {
-				original_tag = FIN
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-					
-			equipment_bonus = { # WARNING!! Any changes here need to be applied in the Dynamic Modifier custom tooltip. Thanks for your attention.
-				small_plane_airframe = {
-					instant = yes
-					build_cost_ic = -0.05
-				}
-				cv_small_plane_airframe = {
-					instant = yes
-					build_cost_ic = -0.05
-				}
-			}
-		}
-
-		FIN_hidden_fighter_production_ns_improved = { #Hidden idea to apply production bonuses. Communicated in FIN_finnish_airforce (used as NS)
- 			name = FIN_finnish_airforce #Just in case it shows up anywhere
-			removal_cost = -1
-
-			picture = FIN_finnish_airforce
-				
-			allowed = {
-				original_tag = FIN
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-					
-			equipment_bonus = { # WARNING!! Any changes here need to be applied in the Dynamic Modifier custom tooltip. Thanks for your attention.
-				small_plane_airframe = {
-					instant = yes
-					build_cost_ic = -0.1
-				}
-				cv_small_plane_airframe = {
-					instant = yes
-					build_cost_ic = -0.1
-				}
-			}
-		}
-
-		FIN_hidden_naval_bomber_production_ns = { #Hidden idea to apply production bonuses. Communicated in FIN_finnish_airforce (used as NS)
- 			name = FIN_finnish_airforce #Just in case it shows up anywhere
-			removal_cost = -1
-
-			picture = FIN_finnish_airforce
-				
-			allowed = {
-				original_tag = FIN
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-					
-			equipment_bonus = { # WARNING!! Any changes here need to be applied in the Dynamic Modifier custom tooltip. Thanks for your attention.
-				small_plane_naval_bomber_airframe = {
-					instant = yes
-					build_cost_ic = -0.05
-				}
-				cv_small_plane_naval_bomber_airframe = {
-					instant = yes
-					build_cost_ic = -0.05
-				}
-			}
-		}
-
-		FIN_hidden_naval_bomber_production_ns_improved = { #Hidden idea to apply production bonuses. Communicated in FIN_finnish_airforce (used as NS)
- 			name = FIN_finnish_airforce #Just in case it shows up anywhere
-			removal_cost = -1
-
-			picture = FIN_finnish_airforce
-				
-			allowed = {
-				original_tag = FIN
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-					
-			equipment_bonus = { # WARNING!! Any changes here need to be applied in the Dynamic Modifier custom tooltip. Thanks for your attention.
-				small_plane_naval_bomber_airframe = {
-					instant = yes
-					build_cost_ic = -0.1
-				}
-				cv_small_plane_naval_bomber_airframe = {
-					instant = yes
-					build_cost_ic = -0.1
-				}
-			}
-		}
-
-		FIN_hidden_convoy_production_ns = { #Hidden idea to apply arty production bonuses. Communicated in FIN_finnish_navy (used as NS)
- 			name = FIN_finnish_navy #Just in case it shows up anywhere
-			removal_cost = -1
-
-			picture = FIN_finnish_navy
-				
-			allowed = {
-				original_tag = FIN
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-					
-			equipment_bonus = { # WARNING!! Any changes here need to be applied in the Dynamic Modifier custom tooltip. Thanks for your attention.
-				convoy = {
-					instant = yes
-					build_cost_ic = -0.1
-				}
-			}
-		}
-
-		FIN_hidden_dd_and_coastal_defense_production_ns = { #Hidden idea to apply arty production bonuses. Communicated in FIN_finnish_navy (used as NS)
- 			name = FIN_finnish_navy #Just in case it shows up anywhere
-			removal_cost = -1
-
-			picture = FIN_finnish_navy
-				
-			allowed = {
-				original_tag = FIN
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-					
-			equipment_bonus = { # WARNING!! Any changes here need to be applied in the Dynamic Modifier custom tooltip. Thanks for your attention.
-				screen_ship = {
-					instant = yes
-					build_cost_ic = -0.1
-				}
-				ship_hull_cruiser_coastal_defense_ship = {
-					instant = yes
-					build_cost_ic = -0.1
-				}
-			}
-		}
-
-		FIN_hidden_dd_and_coastal_defense_production_ns_no_mtg = { #Hidden idea to apply arty production bonuses. Communicated in FIN_finnish_navy (used as NS)
- 			name = FIN_finnish_navy #Just in case it shows up anywhere
-			removal_cost = -1
-
-			picture = FIN_finnish_navy
-				
-			allowed = {
-				original_tag = FIN
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-					
-			equipment_bonus = { # WARNING!! Any changes here need to be applied in the Dynamic Modifier custom tooltip. Thanks for your attention.
-				screen_ship = {
-					instant = yes
-					build_cost_ic = -0.1
+			149 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
 				}
 			}
 		}
 	}
+	focus = {
+		id = FIN_agriculture
+		text = "Agricultural Expansion"
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = FIN_land_reform }
+		x = -1
+		y = 1
+		relative_position_id = FIN_land_reform
 
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			149 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
 	
-########  ########  ######  ####  ######   ##    ## ######## ########   ######  
-##     ## ##       ##    ##  ##  ##    ##  ###   ## ##       ##     ## ##    ## 
-##     ## ##       ##        ##  ##        ####  ## ##       ##     ## ##       
-##     ## ######    ######   ##  ##   #### ## ## ## ######   ########   ######  
-##     ## ##             ##  ##  ##    ##  ##  #### ##       ##   ##         ## 
-##     ## ##       ##    ##  ##  ##    ##  ##   ### ##       ##    ##  ##    ## 
-########  ########  ######  ####  ######   ##    ## ######## ##     ##  ######  
+	focus = {
+		id = FIN_industrial_subsidies
+		text = "Industrial Subsidies"
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = FIN_agriculture }
+		x = 0
+		y = 1
+		relative_position_id = FIN_agriculture
 
+		cost = 10
 
-	tank_manufacturer = {
-
-		designer = yes
-
-		FIN_valtion_panssaritehdas = {
-			name = FIN_valtion_panssaritehdas_organization
-			picture = FIN_valtion_panssaritehdas
-
-			allowed = {
-				original_tag = FIN
-			}
-
-			visible = {
-			}
-			
-			research_bonus = {
-				armor = 0.15
-			}
-			
-			traits = { tank_manufacturer }
+		ai_will_do = {
+			factor = 27
 		}
 
-		FIN_valtion_panssaritehdas_improved = {
-			name = FIN_valtion_panssaritehdas_organization
-			picture = FIN_valtion_panssaritehdas
-
-			allowed = {
-				original_tag = FIN
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = finnish_subsidies1
+				}
+				swap_ideas = {
+					remove_idea = finnish_subsidies1
+					add_idea = finnish_subsidies2
+				}
 			}
-
-			visible = {
-				always = no
+			else = {
+				swap_ideas = {
+					remove_idea = finnish_subsidies3
+					add_idea = finnish_subsidies4
+				}
 			}
+		}
+	}
+	
+	focus = {
+		id = FIN_mining
+		text = "Mining Subsidies"
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = FIN_industrial_subsidies }
+		x = 0
+		y = 2
+		relative_position_id = FIN_industrial_subsidies
 
-			cost = 75
-			
-			research_bonus = {
-				armor = 0.15
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			148 = {
+				add_resource = {
+					type = steel
+					amount = 20
+				}
+				add_resource = {
+					type = tungsten
+					amount = 20
+				}
 			}
-			
-			traits = { tank_manufacturer }
+		}
+	}
+	
+	focus = {
+		id = FIN_private_sector
+		text = "Private Sector Investments"
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = FIN_mining }
+		x = -1
+		y = 1
+		relative_position_id = FIN_mining
 
-			equipment_bonus = {
-				armor = {
-					instant = yes
-					build_cost_ic = -0.1
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			148 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_light_industry
+		text = "Light Industry Expansion"
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = FIN_mining }
+		prerequisite = { focus = FIN_defence }
+
+		x = 1
+		y = 1
+		relative_position_id = FIN_mining
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			111 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_arms_workshops
+		text = "Arms Workshops"
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = FIN_land_reform }
+		x = 1
+		y = 1
+		relative_position_id = FIN_land_reform
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			111 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_defence_subsidies
+		text = "Defence Subsidies"
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = FIN_arms_workshops }
+		x = 0
+		y = 1
+		relative_position_id = FIN_arms_workshops
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = finnish_subsidies1
+				}
+				swap_ideas = {
+					remove_idea = finnish_subsidies1
+					add_idea = finnish_subsidies3
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = finnish_subsidies2
+					add_idea = finnish_subsidies4
 				}
 			}
 		}
 	}
 
-	naval_manufacturer = { 
-		
-		designer = yes
-		
-#		crichton = { #OLD Designer before AAT
-#			
-#			picture = generic_naval_manufacturer_1
-#
-#			
-#			allowed = {
-#				original_tag = FIN
-#			}
-#			
-#			research_bonus = {
-#				naval_equipment = 0.15
-#			}
-#			
-#			# submarine and defence ship production
-#			
-#			traits = { naval_manufacturer }
-#		}
+	focus = {
+		id = FIN_defence
+		text = "Manner Werke"
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = FIN_defence_subsidies }
+		x = 0
+		y = 3
+		relative_position_id = FIN_arms_workshops
 
-		FIN_crichton_vulcan = {
-			name = FIN_crichton_vulcan_organization
-			picture = FIN_crichton_vulcan
+		cost = 10
 
-			allowed = {
-				original_tag = FIN
-			}
+		ai_will_do = {
+			factor = 27
+		}
 
-			visible = {
+		completion_reward = {
+			145 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+											}
+				}
+							}
+	}
+
+	focus = {
+		id = FIN_defe
+		text = "Nationalize Defense Spending"
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = FIN_defence }
+		x = 1
+		y = 4
+		relative_position_id = FIN_arms_workshops
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			145 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+											}
+				}
+							}
+	}
+	
+	focus = {
+		id = FIN_technological_advancements
+		text = "Research Subsidies"
+		icon = GFX_focus_research
+		prerequisite = { focus = FIN_defence_subsidies }
+		prerequisite = { focus = FIN_industrial_subsidies }
+		x = -1
+		y = 1
+		relative_position_id = FIN_defence_subsidies
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = FIN_reinforce_the_border
+		text = "Reomfprce the Border"
+		icon = GFX_goal_generic_defence
+		x = 5
+		y = 0
+		available = {
+			is_ai = no
+		}
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			146 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9176
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6153
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11156
+					instant_build = yes
+				}
 			}
-			
-			research_bonus = {
-				naval_equipment = 0.15
+			150 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6134
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 7
+					instant_build = yes
+				}
 			}
-			
-			traits = { raiding_fleet_naval_manufacturer }
+			147 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 197
+					instant_build = yes
+				}
+			}
+			722 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9140
+					instant_build = yes
+				}
+			}
 		}
 	}
 	
-	aircraft_manufacturer = { 
-			
-		designer = yes
-		
-		
-#		valtion_lentokonetehdas = { #OLD Designer before AAT
-#			
-#			picture = generic_air_manufacturer_3
-#
-#			
-#			allowed = {
-#				original_tag = FIN
-#			}
-#			
-#			research_bonus = {
-#				air_equipment = 0.15
-#			}
-#			
-#			traits = { light_aircraft_manufacturer }
-#			
-#			# assembled Junkers, fast bombers
-#		
-#			ai_will_do = {
-#				factor = 1
-#			}
-#		}
+	focus = {
+		id = FIN_finish_mannerheim
+		text = "Finish the Mannerheim Line"
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = FIN_reinforce_the_border }
+		x = 0
+		y = 1
+		relative_position_id = FIN_reinforce_the_border
 
-		FIN_valtion_lentokonetehdas = {
-			name = FIN_valtion_lentokonetehdas_organization
-			picture = FIN_valtion_lentokonetehdas
+		cost = 10
 
-			allowed = {
-				original_tag = FIN
-			}
-
-			visible = {
-			}
-			
-			research_bonus = {
-				air_equipment = 0.15
-			}
-			
-			traits = { light_aircraft_manufacturer }
-		}
-	}
-
-	materiel_manufacturer = {
-		
-		designer = yes
-
-		FIN_valtion_kivaaritehdas = {
-			name = FIN_valtion_kivaaritehdas_organization
-			picture = FIN_valtion_kivaaritehdas
-
-			allowed = {
-				original_tag = FIN
-			}
-
-			visible = {
-				NOT = { has_completed_focus = FIN_integrate_oy_tikkakoski }
-			}
-			
-			research_bonus = {
-				infantry_weapons = 0.15
-			}
-			
-			traits = { infantry_equipment_manufacturer }
+		ai_will_do = {
+			factor = 27
 		}
 
-		FIN_valtion_kivaaritehdas_improved = {
-			name = FIN_valtion_kivaaritehdas_organization
-			picture = FIN_valtion_kivaaritehdas
-
-			allowed = {
-				original_tag = FIN
-			}
-
-			visible = {
-				has_completed_focus = FIN_integrate_oy_tikkakoski
-			}
-
-			cost = 75
-			
-			research_bonus = {
-				infantry_weapons = 0.15
-			}
-			
-			traits = { infantry_equipment_manufacturer }
-
-			equipment_bonus = {
-				infantry_equipment = {
-					instant = yes
-					build_cost_ic = -0.1
+		bypass = {
+			NOT = {
+				146 = {
+					CONTROLLER = {
+						OR = {
+							tag = FIN
+							is_subject_of = FIN
+						}
+					}
 				}
 			}
 		}
 
-		FIN_valtion_tykkitehdas = {
-			name = FIN_valtion_tykkitehdas_organization
-			picture = FIN_valtion_tykkitehdas
-
-			allowed = {
-				original_tag = FIN
+		completion_reward = {
+			146 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 9100
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 9105
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+				}
 			}
-
-			visible = {
-				NOT = { has_completed_focus = FIN_national_firepower }
-			}
-			
-			research_bonus = {
-				artillery = 0.15
-			}
-			
-			traits = { artillery_manufacturer }
 		}
+	}
+	
+	focus = {
+		id = FIN_fallback_forts
+		text = "Fortify the New Border"
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = FIN_finish_mannerheim }
+		x = 0
+		y = 1
+		relative_position_id = FIN_finish_mannerheim
 
-		FIN_valtion_tykkitehdas_improved = {
-			name = FIN_valtion_tykkitehdas_organization
-			picture = FIN_valtion_tykkitehdas
-
-			allowed = {
-				original_tag = FIN
-			}
-
-			visible = {
-				has_completed_focus = FIN_national_firepower
-			}
-
-			cost = 75
-			
-			research_bonus = {
-				artillery = 0.15
-			}
-			
-			traits = { artillery_manufacturer }
-
-			equipment_bonus = {
-				artillery_equipment = {
-					instant = yes
-					build_cost_ic = -0.1
+		cost = 10
+		
+		available = {
+			NOT = {
+				146 = {
+					CONTROLLER = {
+						OR = {
+							tag = FIN
+							is_subject_of = FIN
+						}
+					}
 				}
 			}
 		}
 
-		FIN_sisu_auto = {
-			name = FIN_sisu_auto_organization
-			picture = FIN_sisu_auto
-
-			allowed = {
-				original_tag = FIN
-			}
-
-			visible = {
-				NOT = { has_completed_focus = FIN_contract_with_yhteissisu }
-			}
-			
-			research_bonus = {
-				motorized_equipment = 0.15
-			}
-			
-			traits = { motorized_equipment_manufacturer }
+		ai_will_do = {
+			factor = 27
 		}
 
-		FIN_sisu_auto_improved = {
-			name = FIN_sisu_auto_organization
-			picture = FIN_sisu_auto
-
-			allowed = {
-				original_tag = FIN
+		completion_reward = {
+			111 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6082
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6186
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 52
+					instant_build = yes
+				}
 			}
-
-			visible = {
-				has_completed_focus = FIN_contract_with_yhteissisu
+			150 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 139
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3030
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9181
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6210
+					instant_build = yes
+				}
 			}
+		}
+	}
+	
+	focus = {
+		id = FIN_defence_spending
+		text = "Increase Defence Spending"
+		icon = GFX_goal_generic_build_tank
+		x = 8
+		y = 0
 
-			cost = 75
-			
-			research_bonus = {
-				motorized_equipment = 0.15
+		cost = 10
+		
+		available = {
+			date > 1936.06.01
+			is_ai = no
+		}
+
+		ai_will_do = {
+			factor = 27
+		}
+		
+		continue_if_invalid = yes
+
+		completion_reward = {
+			111 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
 			}
-			
-			traits = { motorized_equipment_manufacturer }
+			add_ideas = war_economy
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = FIN_employ_lahti
+		text = "Employ Lahti"
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = FIN_defence_spending }
+		x = 0
+		y = 1
+		relative_position_id = FIN_defence_spending
 
-			equipment_bonus = {
-				motorized_equipment = {
-					instant = yes
-					build_cost_ic = -0.1
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			add_ideas = generic_infantry_equipment_manufacturer
+			add_tech_bonus = {
+				name = suomi
+				bonus = 1
+				ahead_reduction = 0
+				uses = 1
+				technology = improved_infantry_weapons
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_ski_infantry
+		text = "Ski Infantry"
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = FIN_employ_lahti }
+		x = -1
+		y = 1
+		relative_position_id = FIN_employ_lahti
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = suomi
+				bonus = 1
+				ahead_reduction = 0
+				uses = 1
+				technology = improved_infantry_weapons_2
+			}
+			swap_ideas = {
+				remove_idea = fin_sisu
+				add_idea = fin_sisu2
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_suomi
+		text = "Suomi KP m/44"
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = FIN_ski_infantry }
+		x = 0
+		y = 1
+		relative_position_id = FIN_ski_infantry
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = suomi
+				bonus = 1
+				uses = 1
+				technology = advanced_infantry_weapons
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_prepare_for_war
+		text = "Prepare for War"
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = FIN_employ_lahti }
+		x = 1
+		y = 1
+		relative_position_id = FIN_employ_lahti
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			army_experience = 25
+			add_political_power = 120
+			add_doctrine_cost_reduction = {
+				name = motti
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_white_guard
+		text = "Consolidate the White Guard"
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = FIN_prepare_for_war }
+		x = 0
+		y = 1
+		relative_position_id = FIN_prepare_for_war
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			add_ideas = FIN_white_guard1
+		}
+	}
+	
+	focus = {
+		id = FIN_motti
+		text = "Motti Tactics"
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = FIN_white_guard }
+		prerequisite = { focus = FIN_suomi }
+		x = -1
+		y = 1
+		relative_position_id = FIN_white_guard
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = fin_sisu2
+				add_idea = fin_sisu3
+			}
+			add_doctrine_cost_reduction = {
+				name = motti
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_winter_war
+		text = "The Winter War"
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		x = 17
+		y = 0
+
+		cost = 1
+		
+		available = {
+			or = {
+				has_war_with = SOV
+				date > 1940.01.01
+			}
+			is_ai = no
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		completion_reward = {
+			set_rule = { 
+				can_send_volunteers = yes
+			}
+			add_ideas = tot_economic_mobilisation
+			add_ideas = service_by_requirement
+			swap_ideas = {
+				remove_idea = pre_grinded_gens_volunteers
+				add_idea = finnladen_rausen
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_axis_aid
+		text = "German Aid"
+		icon = GFX_focus_chi_mission_to_germany
+		prerequisite = { focus = FIN_winter_war }
+		x = -4
+		y = 1
+		relative_position_id = FIN_winter_war
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = { 
+			add_to_tech_sharing_group = axis_research
+			add_ideas = german_advisor1
+			GER = {
+				add_ideas = fin_trade
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_axis_aircraft
+		text = "Hire German Construction Company"
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = FIN_axis_aid }
+		x = -2
+		y = 1
+		relative_position_id = FIN_axis_aid
+		
+		available = {
+			NOT = { has_idea = FIN_arms_purchases }
+		}
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			add_timed_idea = { idea = FIN_arms_purchases days = 120 }
+			150 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+
+	focus = {
+		id = FIN_axis_guns
+		text = "German Equipment Purchases"
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = FIN_axis_aid }
+		x = 2
+		y = 1
+		relative_position_id = FIN_axis_aid
+		
+		available = {
+			NOT = { has_idea = FIN_arms_purchases }
+		}
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			add_timed_idea = { idea = FIN_arms_purchases days = 120 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 10000
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 100
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment
+				amount = 20
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 400
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 100
+				producer = GER
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_axis_industry
+		text = "German Industry Investments"
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = FIN_axis_aid }
+		x = 0
+		y = 1
+		relative_position_id = FIN_axis_aid
+		
+		available = {
+			NOT = { has_idea = FIN_arms_purchases }
+		}
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			add_timed_idea = { idea = FIN_arms_purchases days = 120 }
+			150 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
 				}
 			}
 		}
 	}
 
-
-	industrial_concern = {
-
-		FIN_outokumpu = {
-
-			picture = GFX_idea_FIN_outokumpu
-			
-			allowed = {
-				original_tag = FIN
-			}
-			
-			cost = 150
-
-			research_bonus = {
-				excavation_tech = 0.15
-			}
-			
-			traits = { mining_company }
+	focus = {
+		id = FIN_german_engineering
+		text = "German Engineering"
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = FIN_axis_industry }
+		prerequisite = { focus = FIN_axis_aircraft }
+		prerequisite = { focus = FIN_axis_guns }
+		x = 0
+		y = 2
+		relative_position_id = FIN_axis_aid
+		
+		available = {
+			NOT = { has_idea = FIN_arms_purchases }
 		}
 
-		FIN_tampella = {
+		cost = 5
 
-			picture = GFX_idea_FIN_tampella
-			
-			allowed = {
-				original_tag = FIN
-			}
-			
-			cost = 150
-
-			research_bonus = {
-				industry = 0.15
-			}
-			
-			traits = { industrial_concern }
+		ai_will_do = {
+			factor = 27
 		}
 
-		FIN_pohjolan_voima = {
-
-			picture = GFX_idea_FIN_pohjolan_voima
-			
-			allowed = {
-				original_tag = FIN
-			}
-
-			available = {
-				has_completed_focus = FIN_found_pohjolan_voima
-			}
-			
-			cost = 150
-			
-			traits = { construction_company }
-
-			modifier = {
-				consumer_goods_factor = -0.15
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = finnish_subsidies4
+				add_idea = german_engineering
 			}
 		}
-
-		FIN_nokia = {
-
-			picture = FIN_nokia
-			
-			allowed = {
-				original_tag = FIN
-			}
-
-			visible = {
-				NOT = { has_completed_focus = FIN_tire_factory_at_nokia }
-			}
-
-			available = {
-				controls_state = 927 #HÄME (Tampere - Nokia)
-			}
-			
-			cost = 150
-
-			research_bonus = {
-				electronics = 0.15
-			}
-			
-			traits = { electronics_concern }
-		}
-
-		FIN_nokia_improved = {
-			name = FIN_nokia
-
-			picture = FIN_nokia
-			
-			allowed = {
-				original_tag = FIN
-			}
-
-			visible = {
-				has_completed_focus = FIN_tire_factory_at_nokia
-			}
-			
-			available = {
-				controls_state = 927 #HÄME (Tampere - Nokia)
-			}
-
-			cost = 150
-
-			research_bonus = {
-				electronics = 0.15
-				synth_resources = 0.15
-			}
-			
-			traits = { electronics_concern }
-		}
-
-		FIN_valtionrautatiet = {
-
-			picture = GFX_idea_FIN_valtionrautatiet
-			
-			allowed = {
-				original_tag = FIN
-			}
-			
-			cost = 75
-
-			research_bonus = {
-				train_tech = 0.15
-			}
-			
-			traits = { railway_company }
-		}
-
 	}
+	
+	focus = {
+		id = FIN_revanchism
+		text = "Revanchism"
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = FIN_winter_war }
+		mutually_exclusive = { focus = FIN_victorious }
+		x = 2
+		y = 1
+		relative_position_id = FIN_winter_war
+
+		cost = 5
+		
+		available = {
+			not = {
+				controls_state = 146
+			}
+			has_war = no
+		}
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			add_political_power = -100
+			add_war_support = 0.25
+		}
+	}
+	
+	focus = {
+		id = FIN_victorious
+		text = "Victory in the Winter War"
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = FIN_winter_war }
+		mutually_exclusive = { focus = FIN_revanchism }
+		x = 4
+		y = 1
+		relative_position_id = FIN_winter_war
+
+		cost = 5
+		
+		available = {
+			controls_state = 146
+			controls_state = 147
+		}
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.25
+			add_war_support = 0.25
+			army_experience = 100
+		}
+	}
+	
+	focus = {
+		id = FIN_expand_white_guard
+		text = "Expand the White Guard"
+		icon = GFX_focus_ger_great_red_menace
+		prerequisite = { focus = FIN_revanchism focus = FIN_victorious }
+		x = 0
+		y = 1
+		relative_position_id = FIN_revanchism
+		
+		available = {
+			has_idea = FIN_white_guard1
+		}
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIN_white_guard1
+				add_idea = FIN_white_guard2
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_stockpile_supplies
+		text = "Stockpile Supplies"
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = FIN_revanchism focus = FIN_victorious }
+		x = 2
+		y = 1
+		relative_position_id = FIN_revanchism
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			add_ideas = stockpile_supplies
+
+			add_tech_bonus = {
+				name = suomi
+				bonus = 1
+				ahead_reduction = 0
+				uses = 2
+				technology = advanced_machine_tools
+				technology = flexible_line
+				technology = assembly_line_production
+				technology = streamlined_line
+				technology = concentrated_industry3
+				technology = concentrated_industry4
+				technology = concentrated_industry5
+				technology = dispersed_industry3 
+				technology = dispersed_industry4 
+				technology = dispersed_industry5
+			}
+
+		}
+	}
+	
+	focus = {
+		id = FIN_marshal_of_finland
+		text = "The Marshal of Finland"
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = FIN_stockpile_supplies }
+		prerequisite = { focus = FIN_expand_white_guard }
+		x = -1
+		y = 1
+		relative_position_id = FIN_stockpile_supplies
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			create_country_leader = {
+				name = "Carl Gustaf Emil Mannerheim"
+				picture = "GFX_portrait_fin_carl_mannerheim"
+				expire = "1989.1.1"
+				ideology = fascism_ideology
+				traits = {
+					
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_join_axis
+		text = "Join Axis"
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = FIN_marshal_of_finland }
+		x = -1
+		y = 1
+		relative_position_id = FIN_marshal_of_finland
+
+		cost = 5
+
+		available = {
+			date > 1939.09.01
+			has_game_rule = { 
+							rule = FIN_WAR
+							option = FINNLAND_BARB
+						} 
+		}
+
+		bypass = {
+			is_in_faction_with = GER
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			GER = { add_to_faction = FIN }
+		}
+	}
+	
+	focus = {
+		id = FIN_continuation
+		text = "Continue the Fight"
+		icon = GFX_focus_attack_soviet
+		prerequisite = { focus = FIN_marshal_of_finland }
+		x = 1
+		y = 1
+		relative_position_id = FIN_marshal_of_finland
+
+		cost = 1
+
+		available = {
+			GER = { has_war_with = SOV }
+			NOT = { has_war_with = SOV }
+			has_game_rule = { 
+							rule = FIN_WAR
+							option = FINNLAND_BARB
+						} 
+		}
+
+		bypass = {
+			has_war_with = SOV
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			FIN = { add_to_war = { targeted_alliance = GER enemy = SOV } }
+			FIN = { add_timed_idea = { idea = axis_barbarossa days = 180 } }
+		}
+	}
+	
+	focus = {
+		id = FIN_field_kitchens
+		text = "Field Kitchens"
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = FIN_winter_war }
+		x = 0
+		y = 1
+		relative_position_id = FIN_winter_war
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 27
+		}
+
+		completion_reward = {
+			add_ideas = FIN_kitchens
+		}
+	}
+
+	focus = {
+		id = FIN_foreign_support
+		text = "Foreign Volunteers"
+		icon = GFX_focus_generic_little_entente
+		cost = 1
+		x = -2
+		y = 1
+		relative_position_id = FIN_winter_war
+		prerequisite = {
+			focus = FIN_winter_war
+		}
+		available = {
+			has_war_with = SOV
+		}
+
+		completion_reward = {
+			add_manpower = 120000
+		 }
+	}
+
 }

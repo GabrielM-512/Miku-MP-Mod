@@ -7,19 +7,20 @@
 ### search_filters = {FOCUS_FILTER_ANNEXATION}
 
 focus_tree = {
-	id = netherlands_focus
+	id = lithuania_tree
 	
 	country = {
 		factor = 0
-		
 		modifier = {
 			add = 10
-			tag = HOL
-			has_dlc = "Man the Guns"
+			tag = LIT
+			has_dlc = "No Step Back"
 		}
 	}
 	
+
 	default = no
 
-	continuous_focus_position = { x = 50 y = 1500 }
+	continuous_focus_position = { x = 20 y = 1000 }
+
 }
