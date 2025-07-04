@@ -1,3 +1,15 @@
+# befriend
+# conquer
+# antagonize
+# build_ship
+# build_army
+# unit_ratio
+# build_building
+# research_tech
+# garrison
+# protect
+# influence
+
 FRA_unit_production = {
 	allowed = { original_tag = FRA }
 	enable = {
@@ -14,11 +26,6 @@ FRA_unit_production = {
 	}
 
 
-	ai_strategy = {
-		type = role_ratio
-		id = paratroopers
-		value = 0
-	}
 
 	ai_strategy = {
 		type = role_ratio
@@ -455,60 +462,6 @@ FRA_GER_will_probably_join_ITA = {
 	}
 }
 
-FRA_why_push_into_germany_their_food_is_horrible = {
-	allowed = {
-		original_tag = FRA
-	}
-	enable = {
-		date < 1941.1.1  # Deactivate after some time
-		surrender_progress < 0.01 # We haven't lost territories 
-		
-		# Once Germany launches some kind of attack on the low countries, or if they go somewhere dangerous, we can try if we want to
-		GER = { NOT = { has_war_with = BEL } }
-		GER = { NOT = { has_war_with = HOL } }
-		GER = { NOT = { has_war_with = CZE } }
-		GER = { NOT = { has_war_with = AUS } }
-		GER = { NOT = { has_war_with = SOV } }
-		GER = { NOT = { has_war_with = ITA } }
-
-
-		28 = { # Alsace-Lorraine
-			is_fully_controlled_by = ROOT
-		}
-
-		42 = { # Moselland
-			is_controlled_by = GER
-		}
-		978 = { # Baden
-			is_controlled_by = GER
-		}
-	}
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = force_concentration_front_factor
-		state = 42  # Moselland
-		state = 978  # Baden
-		ratio = 0.95  # Only if > 95 % of the front consists of these states. This should make it deactivate if the frontline extends around the maginot
-		value = -100
-	}
-
-	ai_strategy = {
-		type = front_control
-
-		state = 42 # Moselland
-		state = 978 # Baden
-
-		ratio = 0.8
-
-		priority = 100
-		ordertype = front
-		execution_type = careful
-		execute_order = no  # This should block France from attacking, It's a bit digital, but as the strategy should cancel if they do something weird, it should be fine
-		manual_attack = no
-	}
-}
-
 FRA_benelux_will_surely_not_fall = {
 	allowed = { original_tag = FRA }
 	enable = {
@@ -541,11 +494,6 @@ FRA_benelux_will_surely_not_fall = {
 		value = 50
 	}
 	ai_strategy = {
-		type = dont_defend_ally_borders
-		id = "LUX"
-		value = 50
-	}
-	ai_strategy = {
 		type = put_unit_buffers
 		# french states bordering benelux
 		states = {
@@ -557,47 +505,6 @@ FRA_benelux_will_surely_not_fall = {
 		area = europe
 		subtract_invasions_from_need = no
 		subtract_fronts_from_need = yes
-	}
-}
-
-VIC_avoid_joining_japan = {
-
-	allowed = { original_tag = FRA }
-	
-	enable = {
-		is_historical_focus_on = yes
-		GER = { has_capitulated = no }
-		tag = VIC
-	}
-	
-	abort = {
-		date > 1945.1.1
-	}
-
-	ai_strategy = {
-		type = alliance
-		id = "JAP"
-		value = -400
-	}
-}
-
-JAP_avoid_joining_vichy = { #This is required due to declare_war command executing a reverse check
-
-	allowed = { original_tag = JAP }
-	
-	enable = {
-		is_historical_focus_on = yes
-		GER = { has_capitulated = no }
-	}
-	
-	abort = {
-		date > 1945.1.1
-	}
-
-	ai_strategy = {
-		type = alliance
-		id = "VIC"
-		value = -400
 	}
 }
 
