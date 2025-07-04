@@ -1,1 +1,31 @@
-focus_tree = { }		
+focus_tree = {
+	id = belgium_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = BEL
+			has_dlc = "Gotterdammerung"
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	shared_focus = CONGO_belgian_congo
+	shared_focus = CONGO_societe_generale_de_belgique
+	shared_focus = CONGO_congo_investments	
+
+   initial_show_position = { focus = BEL_perpetual_neutrality }
+
+
+
+#######################
+#######################
+###### DEFENSIVE ######
+#######################
+#######################
+}

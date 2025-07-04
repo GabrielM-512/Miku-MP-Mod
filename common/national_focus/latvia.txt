@@ -7,25 +7,20 @@
 ### search_filters = {FOCUS_FILTER_ANNEXATION}
 
 focus_tree = {
-	id = wuw_hungarian_focus
-	shared_focus = AXIS_pact_of_steel
+	id = latvia_tree
+	
 	country = {
 		factor = 0
-
 		modifier = {
-			add = 50
-			tag = HUN
-			#always = no
-
-			has_dlc = "Gotterdammerung"
+			add = 10
+			tag = LAT
+			has_dlc = "No Step Back"
 		}
 	}
+	
 
 	default = no
 
-	continuous_focus_position = { x = 50 y = 1750 }
-	
-	initial_show_position = {
-	    focus = wuw_HUN_continue_the_regency
-	}
+	continuous_focus_position = { x = 20 y = 1000 }
+
 }
