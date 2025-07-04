@@ -1,20 +1,18 @@
-ROM_be_nice_to_hitler = {
-	allowed = {
-		original_tag = ROM
-	}
-	enable = {
-		has_completed_focus = ROM_trade_treaty_with_germany
-	}
-	abort={
-		is_in_faction = yes
-	}
+# befriend
+# conquer
+# antagonize
+# build_ship
+# build_army
+# unit_ratio
+# build_building
+# research_tech
+# garrison
+# protect
+# influence
+# contain
+# area_priority
 
-	ai_strategy = {
-		type = befriend
-		id = GER
-		value = 200
-	}
-}
+
 
 ROM_build_early_civ = {
 	allowed = {

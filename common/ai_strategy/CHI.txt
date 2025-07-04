@@ -1,3 +1,15 @@
+# befriend
+# conquer
+# antagonize
+# build_ship
+# build_army
+# unit_ratio
+# build_building
+# research_tech
+# garrison
+# protect
+# influence
+
 CHI_unit_production = {
 	allowed = { original_tag = CHI }
 	enable = {
@@ -14,11 +26,6 @@ CHI_unit_production = {
 	}
 
 
-	ai_strategy = {
-		type = role_ratio
-		id = paratroopers
-		value = 0
-	}
 
 	ai_strategy = {
 		type = role_ratio
@@ -131,28 +138,6 @@ CHI_unit_production = {
 	}
 }
 
-CHI_dont_waste_on_offensive_air_early = {
-	allowed = { original_tag = CHI }
-	enable = {
-		date < 1940.1.1
-	}
-	abort = {
-		date > 1940.1.1
-	}
-
-	ai_strategy = {
-		type = equipment_variant_production_factor
-		id = medium_plane_airframe
-		value = -100
-	}
-	
-	ai_strategy = {
-		type = equipment_variant_production_factor
-		id = large_plane_airframe
-		value = -100
-	}
-}
-
 CHI_armored_production = {
 	allowed = { original_tag = CHI }
 	enable = {
@@ -183,20 +168,6 @@ CHI_highered_armored_production = {
 		id = armor
 		value = 0
 	}
-}
-
-CHI_prio_military_even_at_peace = {
-	allowed = { original_tag = CHI }
-	enable = {
-		always = yes
-	}
-	abort_when_not_enabled = yes
-	
-	ai_strategy = {
-		type = added_military_to_civilian_factory_ratio
-		value = 50
-	}
-	
 }
 	
 CHI_dont_mess_with_the_soviets = {
@@ -310,64 +281,4 @@ CHI_hunker_down_now  = {
 		execution_type = careful
 	}
 
-}
-
-CHI_dont_join_ENG_if_not_democratic = {
-	allowed = {
-		WTT_is_chinese_country = yes 
-	}
-
-	enable = {
-		WTT_is_chinese_country = yes 
-		NOT = { has_government = democratic }
-		ENG = { has_government = democratic }
-	}
-
-	abort_when_not_enabled = yes 
-
-	ai_strategy = {
-		type =  alliance
-		id = ENG
-		value = -200
-	}
-
-
-}
-
-CHI_dont_join_USA_if_not_democratic = {
-	allowed = {
-		WTT_is_chinese_country = yes 
-	}
-
-	enable = {
-		WTT_is_chinese_country = yes 
-		NOT = { has_government = democratic }
-		USA = { has_government = democratic }
-	}
-
-	abort_when_not_enabled = yes 
-
-	ai_strategy = {
-		type =  alliance
-		id = USA
-		value = -200
-	}
-
-}
-
-#### FORCE CONCENTRATION
-
-# We defend all our country, right
-CHI_aifc_incompetent_officers = {
-	allowed = { original_tag = CHI }
-	enable = {
-		has_idea = CHI_incompetent_officers
-	}
-	
-	abort_when_not_enabled = yes 
-
-	ai_strategy = {
-		type = force_concentration_factor
-		value = -30  # if we have enough doctrines, we can do a little.... 
-	}
 }
