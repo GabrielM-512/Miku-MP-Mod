@@ -11,9 +11,8 @@ state = {
 
 	history = {
 
-		owner = CHL
-		add_core_of = CHL
-		add_claim_by = PRU
+		owner = NIX
+		add_core_of = NIX
 
 		buildings = {
 			infrastructure = 1
